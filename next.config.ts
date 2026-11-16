@@ -11,7 +11,26 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    turbopackPluginRuntimeStrategy: 'forceWorkerThreads' as any,
+    cpus: 1,
+  },
+  async redirects() {
+    return [
+      {
+        source: '/engage',
+        destination: '/nc',
+        permanent: true,
+      },
+      {
+        source: '/conveyancing-services',
+        destination: 'https://conveyancing.rcorpo.com/',
+        permanent: true,
+      },
+      {
+        source: '/home',
+        destination: '/',
+        permanent: true,
+      },
+    ];
   },
 };
 

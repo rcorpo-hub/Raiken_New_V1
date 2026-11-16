@@ -33,6 +33,10 @@ Thumbs.db
 # TypeScript cache
 *.tsbuildinfo
 
+# Media files
+*.mp4
+
+
 # Private migration artifacts & real dumps
 /docs/migration/raw/
 /docs/migration/dumps/

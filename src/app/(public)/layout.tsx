@@ -1,5 +1,6 @@
 import Header from '@/components/public/Header';
 import Footer from '@/components/public/Footer';
+import WelcomeModal from '@/components/public/WelcomeModal';
 
 export default function PublicLayout({
   children,
@@ -9,10 +10,11 @@ export default function PublicLayout({
   return (
     <>
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pb-16 md:pb-0">
         {children}
       </main>
       <Footer />
+      <WelcomeModal />
     </>
   );
 }

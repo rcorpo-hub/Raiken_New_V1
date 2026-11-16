@@ -1,269 +1,278 @@
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { 
-  Building2, 
-  FileText, 
-  Calendar, 
-  ShieldCheck, 
-  ArrowRight, 
-  CheckCircle2, 
   Clock, 
   MapPin, 
+  Check, 
+  CalendarCheck, 
+  DollarSign, 
   Phone, 
-  FileSpreadsheet, 
-  Briefcase, 
-  Laptop, 
-  Scale 
+  Mail, 
+  MessageSquare,
+  ExternalLink
 } from 'lucide-react';
+import HeroSlider from '@/components/public/HeroSlider';
+import ContactEnquiryForm from '@/components/public/ContactEnquiryForm';
 
 export default function HomePage() {
   return (
-    <div className="w-full">
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-cyan-950 text-white py-20 lg:py-28 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#087caa_1px,transparent_1px)] [background-size:24px_24px] opacity-20" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-cyan-300 text-xs font-semibold mb-6">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" />
-              National Australian Advisory Firm · Adelaide · Brisbane · Perth
-            </div>
-            
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-6 leading-tight">
-              Integrated Legal Conveyancing, Accounting &amp; Tech Solutions.
-            </h1>
-            
-            <p className="text-lg sm:text-xl text-slate-300 mb-8 leading-relaxed">
-              Empowering Australian businesses, property buyers, and individuals with licensed conveyancing, tax compliance, corporate structuring, and digital systems.
-            </p>
-            
-            <div className="flex flex-wrap items-center gap-4">
-              <Link
-                href="/nc/i-am-purchaser"
-                className="px-6 py-3.5 rounded-lg text-base font-semibold text-white bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-700 hover:to-indigo-700 shadow-lg shadow-cyan-600/30 transition-all flex items-center gap-2"
-              >
-                I am Purchaser (Form 5116) <ArrowRight className="w-4 h-4" />
-              </Link>
-              
-              <Link
-                href="/appointment-booking-form"
-                className="px-6 py-3.5 rounded-lg text-base font-semibold text-white bg-slate-800/80 hover:bg-slate-700 border border-slate-700 transition-all flex items-center gap-2"
-              >
-                <Calendar className="w-4 h-4 text-cyan-400" /> Book Consultation
-              </Link>
+    <div className="w-full font-sans bg-white">
+      {/* 1. Hero Revolution Slider */}
+      <HeroSlider />
 
-              <Link
-                href="/forms"
-                className="px-6 py-3.5 rounded-lg text-base font-semibold text-slate-300 hover:text-white transition-colors flex items-center gap-1.5"
-              >
-                <FileText className="w-4 h-4" /> All 31 Forms Directory
-              </Link>
+      {/* 2. Our Services Section (WordPress Post 332) */}
+      <section id="services" className="py-20 bg-[#fafafa] relative animate-line-view">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-heading text-[#2a2a2a] mb-2 tracking-wide">
+              &bull; Our Services &bull;
+            </h2>
+            <div className="h-[2px] w-24 mx-auto bg-gradient-to-r from-[#01cffc] via-[#2d8dd6] to-[#b83bfa] my-3 relative flex items-center justify-center">
+              <span className="w-2 h-2 rotate-45 bg-[#2d8dd6] absolute"></span>
+            </div>
+            <p className="text-sm text-[#888888] max-w-xl mx-auto italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Service 1: Taxation */}
+            <div className="bg-white border border-[#e5e5e5] rounded-lg p-10 shadow-xs hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="relative w-24 h-24 mb-6">
+                <Image
+                  src="/images/tax.png"
+                  alt="Taxation Services"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-heading font-normal text-[#2a2a2a] mb-3">Taxation</h3>
+              <p className="text-sm text-[#454545] mb-8 leading-relaxed">
+                Tax Related Service - Individual, Business and SMSF
+              </p>
+              <div className="mt-auto">
+                <Link
+                  href="/#contact"
+                  className="dt-sc-button inline-block px-7 py-3 text-xs tracking-wider text-white bg-[#087caa] hover:bg-[#065b7d] rounded transition-colors"
+                >
+                  Read More
+                </Link>
+              </div>
+            </div>
+
+            {/* Service 2: Conveyancing */}
+            <div className="bg-white border border-[#e5e5e5] rounded-lg p-10 shadow-xs hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="relative w-24 h-24 mb-6">
+                <Image
+                  src="/images/loan.png"
+                  alt="Conveyancing Services"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <h3 className="text-2xl font-heading font-normal text-[#2a2a2a] mb-3">Conveyancing</h3>
+              <p className="text-sm text-[#454545] mb-8 leading-relaxed">
+                Licensed legal settlement and property transfer services across Australia.
+              </p>
+              <div className="mt-auto">
+                <a
+                  href="https://conveyancing.rcorpo.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="dt-sc-button inline-flex items-center gap-1.5 px-7 py-3 text-xs tracking-wider text-white bg-[#087caa] hover:bg-[#065b7d] rounded transition-colors"
+                >
+                  Read More <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Trust & Offices Banner */}
-      <section className="bg-slate-900 border-y border-slate-800 py-6 text-slate-300 text-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-cyan-900/50 flex items-center justify-center text-cyan-400 shrink-0">
-              <Building2 className="w-5 h-5" />
+      {/* 3. WHY US Section (WordPress Post 332: background #2d8dd6) */}
+      <section className="py-16 bg-[#2d8dd6] text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-heading font-normal text-white uppercase mb-2 tracking-wide">
+              &bull; WHY US &bull;
+            </h2>
+            <div className="h-[2px] w-24 mx-auto bg-white/70 my-3 relative flex items-center justify-center">
+              <span className="w-2 h-2 rotate-45 bg-white absolute"></span>
             </div>
-            <div>
-              <div className="font-semibold text-white">Adelaide (Head Office)</div>
-              <div className="text-xs text-slate-400">Level 1, 100 King William St · (08) 8123 4567</div>
-            </div>
+            <p className="text-sm text-blue-100 max-w-xl mx-auto italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
+            </p>
           </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-indigo-900/50 flex items-center justify-center text-indigo-400 shrink-0">
-              <Building2 className="w-5 h-5" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-center sm:text-left">
+            {/* Item 1 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <Clock className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Open on weekends</span>
             </div>
-            <div>
-              <div className="font-semibold text-white">Brisbane Office</div>
-              <div className="text-xs text-slate-400">Level 5, 200 Queen St · (07) 3123 4567</div>
-            </div>
-          </div>
 
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-cyan-900/50 flex items-center justify-center text-cyan-400 shrink-0">
-              <Building2 className="w-5 h-5" />
+            {/* Item 2 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <Clock className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Open after hours</span>
             </div>
-            <div>
-              <div className="font-semibold text-white">Perth Office</div>
-              <div className="text-xs text-slate-400">Level 3, 50 St Georges Tce · (08) 9123 4567</div>
+
+            {/* Item 3 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <MapPin className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Multi City locations</span>
+            </div>
+
+            {/* Item 4 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <Check className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Quality Service</span>
+            </div>
+
+            {/* Item 5 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <CalendarCheck className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Quick response</span>
+            </div>
+
+            {/* Item 6 */}
+            <div className="flex items-center gap-4 bg-white/10 p-5 rounded-lg backdrop-blur-xs">
+              <DollarSign className="w-8 h-8 text-white shrink-0" />
+              <span className="text-lg font-heading text-white">Fixed Fee Services</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Services Section */}
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-cyan-600 mb-3">Our Core Capabilities</h2>
-            <h3 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-              Specialized Solutions for Every Stage
-            </h3>
-            <p className="mt-4 text-base text-slate-600">
-              Whether acquiring real estate, managing complex trust tax returns, or deploying enterprise cloud solutions, our specialists guide you every step of the way.
+      {/* 4. Contact Us Section (WordPress Post 332: background #ededed with Frame-1-11.png) */}
+      <section id="contact" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-heading text-[#2a2a2a] mb-2 tracking-wide">
+              &bull; Contact us &bull;
+            </h2>
+            <div className="h-[2px] w-24 mx-auto bg-gradient-to-r from-[#01cffc] via-[#2d8dd6] to-[#b83bfa] my-3 relative flex items-center justify-center">
+              <span className="w-2 h-2 rotate-45 bg-[#2d8dd6] absolute"></span>
+            </div>
+            <p className="text-sm text-[#888888] max-w-xl mx-auto italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Service 1 */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center mb-6">
-                <Scale className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Property Conveyancing</h4>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Complete legal transfer for residential and commercial real estate buyers and vendors across South Australia, Queensland, and Western Australia.
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-slate-700">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Contract & Form 1 Review</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Electronic PEXA Settlements</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Purchaser & Vendor Intake</div>
-              </div>
-              <div className="flex items-center gap-3">
-                <Link href="/nc/i-am-purchaser" className="text-xs font-semibold text-cyan-600 hover:text-cyan-700">
-                  Purchaser Form 5116 →
-                </Link>
-                <span className="text-slate-300">|</span>
-                <Link href="/nc/i-am-vendor" className="text-xs font-semibold text-cyan-600 hover:text-cyan-700">
-                  Vendor Form 5121 →
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 2 */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-indigo-100 text-indigo-700 flex items-center justify-center mb-6">
-                <FileSpreadsheet className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Accounting &amp; Taxation</h4>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                ATO-compliant individual and business taxation, ABN/TFN registrations, quarterly BAS, GST, and rental property schedules.
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-slate-700">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Individual Tax Returns</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Rental Property Summary (Form 3283)</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Rideshare / Taxi GST (Form 3235)</div>
-              </div>
-              <Link href="/forms" className="text-xs font-semibold text-indigo-600 hover:text-indigo-700">
-                Explore Tax Forms →
-              </Link>
-            </div>
-
-            {/* Service 3 */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center mb-6">
-                <Briefcase className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Corporate &amp; Trust Structuring</h4>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Establishment, registration, and ongoing compliance for Discretionary Family Trusts, Unit Trusts, and Australian Private Companies (Pty Ltd).
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-slate-700">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> New Company Registration (995)</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Family Trust Setup (719)</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Corporate Trustee Compliance</div>
-              </div>
-              <Link href="/forms" className="text-xs font-semibold text-emerald-600 hover:text-emerald-700">
-                Company &amp; Trust Applications →
-              </Link>
-            </div>
-
-            {/* Service 4 */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-purple-100 text-purple-700 flex items-center justify-center mb-6">
-                <Laptop className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">IT Services &amp; Cloud Systems</h4>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Enterprise technology services including custom business applications, cloud server infrastructure, cybersecurity, and managed software solutions.
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-slate-700">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Custom Web &amp; Mobile Applications</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Cloud Architecture &amp; Database Design</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> IT Services Estimate (Form 1472)</div>
-              </div>
-              <Link href="/forms" className="text-xs font-semibold text-purple-600 hover:text-purple-700">
-                Request IT Estimate →
-              </Link>
-            </div>
-
-            {/* Service 5 */}
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-8 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-amber-100 text-amber-700 flex items-center justify-center mb-6">
-                <Clock className="w-6 h-6" />
-              </div>
-              <h4 className="text-xl font-bold text-slate-900 mb-3">Appointment Consultations</h4>
-              <p className="text-sm text-slate-600 leading-relaxed mb-6">
-                Flexible in-person consultations at our Adelaide, Brisbane, and Perth offices, or online teleconference sessions across Australian timezones.
-              </p>
-              <div className="space-y-2 mb-6 text-xs text-slate-700">
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> 30 &amp; 60 Min Dedicated Sessions</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Preferred Slot Selection</div>
-                <div className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600" /> Instant Confirmation &amp; Reminders</div>
-              </div>
-              <Link href="/appointment-booking-form" className="text-xs font-semibold text-amber-600 hover:text-amber-700">
-                Book An Appointment →
-              </Link>
-            </div>
-
-            {/* Service 6: Secure Portal */}
-            <div className="bg-gradient-to-br from-cyan-900 to-slate-950 text-white rounded-xl p-8 flex flex-col justify-between">
+          <div className="bg-[#ededed] rounded-xl overflow-hidden shadow-xs grid grid-cols-1 lg:grid-cols-3">
+            {/* Left Contact Information Column with Frame-1-11.png */}
+            <div 
+              className="p-8 sm:p-12 relative flex flex-col justify-between rounded-xl"
+              style={{
+                backgroundImage: "url('/images/Frame-1-11.png')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+              }}
+            >
               <div>
-                <div className="w-12 h-12 rounded-lg bg-cyan-500/20 text-cyan-300 flex items-center justify-center mb-6">
-                  <ShieldCheck className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold mb-3">Secure Document Handling</h4>
-                <p className="text-sm text-slate-300 leading-relaxed mb-4">
-                  All applicant identity documents, contracts, and financial statements are quarantined and encrypted with AES-256 envelope security.
-                </p>
-              </div>
-              <a
-                href="https://accounts.rcorpo.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
-              >
-                Access Client Portal ↗
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+                <h4 className="text-xl font-heading font-medium text-[#2a2a2a] text-center mb-1">
+                  Contact Information
+                </h4>
+                <h6 className="text-xs font-heading text-[#666666] text-center uppercase tracking-wider mb-8">
+                  Click to reach us
+                </h6>
 
-      {/* Direct Forms Highlight Banner */}
-      <section className="py-16 bg-slate-100 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl p-8 sm:p-12 border border-slate-200 shadow-sm flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl">
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-600">Fast Online Processing</span>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2 mb-4">
-                Purchasing Real Estate in SA, QLD, or WA?
-              </h3>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Submit your conveyancing details using our secure online purchaser form. Our licensed conveyancers immediately review your contracts and initiate settlement coordination.
-              </p>
+                <div className="space-y-4">
+                  {/* Broadview */}
+                  <a
+                    href="https://www.google.com/maps/place/3%2F160+Hampstead+Rd,+Broadview+SA+5083,+Australia/@-34.8677665,138.6163769,17z/data=!3m1!4b1!4m5!3m4!1s0x6ab0c9c1d47ca60d:0xfbef3c20bfb60e4d!8m2!3d-34.8677709!4d138.6185656"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-white/90 hover:bg-white rounded-lg shadow-xs transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-[#087caa] text-white flex items-center justify-center shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-sm font-bold text-[#2a2a2a] block">Broadview</span>
+                      <span className="text-xs text-[#666666]">Shop 3 160 Hampstead Rd SA</span>
+                    </div>
+                  </a>
+
+                  {/* Pallara */}
+                  <a
+                    href="https://www.google.com/maps/place/22+Van+Dieren+Rd,+Pallara+QLD+4110,+Australia/@-27.6214257,152.9961542,17z/data=!3m1!4b1!4m5!3m4!1s0x6b914f4e5b806b53:0x48916af6a233486d!8m2!3d-27.6214305!4d152.9983429"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-white/90 hover:bg-white rounded-lg shadow-xs transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-[#087caa] text-white flex items-center justify-center shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-sm font-bold text-[#2a2a2a] block">Pallara</span>
+                      <span className="text-xs text-[#666666]">22 Van Dieren Rd QLD</span>
+                    </div>
+                  </a>
+
+                  {/* Morley */}
+                  <a
+                    href="https://www.google.com/maps/place/440+Morley+Dr,+Morley+WA+6062,+Australia/@-31.8879096,115.8892131,17z/data=!3m1!4b1!4m5!3m4!1s0x2a32b066e52a9375:0x96ed07a188f83930!8m2!3d-31.8879142!4d115.8914018"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3 bg-white/90 hover:bg-white rounded-lg shadow-xs transition-colors"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-[#087caa] text-white flex items-center justify-center shrink-0">
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-sm font-bold text-[#2a2a2a] block">Morley</span>
+                      <span className="text-xs text-[#666666]">440A Morley Dr WA</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Row of 4 Icons */}
+              <div className="pt-8">
+                <div className="grid grid-cols-4 gap-2 text-center">
+                  <a
+                    href="http://wa.me/61452508598"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="WhatsApp"
+                    className="w-11 h-11 mx-auto rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-sm hover:scale-110 transition-transform"
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="tel:0870769899"
+                    aria-label="Call Us"
+                    className="w-11 h-11 mx-auto rounded-full bg-[#087caa] text-white flex items-center justify-center shadow-sm hover:scale-110 transition-transform"
+                  >
+                    <Phone className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="mailto:r@rcorpo.com"
+                    aria-label="Email Us"
+                    className="w-11 h-11 mx-auto rounded-full bg-[#EA4335] text-white flex items-center justify-center shadow-sm hover:scale-110 transition-transform"
+                  >
+                    <Mail className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="sms:0452508598"
+                    aria-label="SMS Us"
+                    className="w-11 h-11 mx-auto rounded-full bg-[#34A853] text-white flex items-center justify-center shadow-sm hover:scale-110 transition-transform"
+                  >
+                    <MessageSquare className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="shrink-0 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Link
-                href="/nc/i-am-purchaser"
-                className="text-center px-6 py-3.5 rounded-lg text-sm font-semibold text-white bg-cyan-600 hover:bg-cyan-700 shadow-md transition-all"
-              >
-                Fill Purchaser Form (5116)
-              </Link>
-              <Link
-                href="/forms"
-                className="text-center px-6 py-3.5 rounded-lg text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-300 transition-all"
-              >
-                View All Forms Directory
-              </Link>
+
+            {/* Right Form Column (Form 697) */}
+            <div className="p-8 sm:p-12 lg:col-span-2 bg-[#ededed]">
+              <h3 className="text-2xl font-heading font-medium text-[#2a2a2a] mb-6">
+                Enquiry Form
+              </h3>
+              <ContactEnquiryForm />
             </div>
           </div>
         </div>

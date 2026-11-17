@@ -1,0 +1,70 @@
+{
+  "desktop": [
+    1536,
+    900
+  ],
+  "phone": [
+    390,
+    844
+  ],
+  "tablet": [
+    768,
+    1024
+  ],
+  "large": [
+    2553,
+    1353
+  ],
+  "mobileChecks": [
+    {
+      "page": "forms",
+      "overflow": false
+    },
+    {
+      "page": "contact",
+      "overflow": false
+    },
+    {
+      "page": "team",
+      "overflow": false
+    },
+    {
+      "page": "client-form",
+      "overflow": false
+    },
+    {
+      "page": "appointment",
+      "overflow": false
+    }
+  ],
+  "tabletChecks": [
+    {
+      "page": "forms",
+      "overflow": false
+    },
+    {
+      "page": "contact",
+      "overflow": false
+    },
+    {
+      "page": "team",
+      "overflow": false
+    },
+    {
+      "page": "client-form",
+      "overflow": false
+    }
+  ],
+  "formCounts": {
+    "personal": 7,
+    "business": 7,
+    "conveyancing": 7,
+    "all": 24
+  },
+  "businessSubgroups": {
+    "company": 2,
+    "trust": 5
+  },
+  "calculatorCheck": "Legal fee 990 to 1000 changed buyer total 1551 to 1561; restored 990; no submission",
+  "appointmentCheck": "Phone Call radio checked; orange selected border"
+}

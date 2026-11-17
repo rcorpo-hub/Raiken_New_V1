@@ -1,0 +1,247 @@
+[
+  {
+    "actionsBounds": {
+      "bottom": 74.34375381469727,
+      "height": 50.70833587646485,
+      "left": 1068.979248046875,
+      "right": 1474.5938415527344,
+      "top": 23.635417938232425,
+      "width": 405.6145935058594,
+      "x": 1068.979248046875,
+      "y": 23.635417938232425
+    },
+    "cardBottom": 736.96875,
+    "centerOffset": -0.17,
+    "height": 784,
+    "logoBounds": {
+      "bottom": 86.71875286102295,
+      "height": 75.45833587646484,
+      "left": 46.07291793823242,
+      "right": 214.0625114440918,
+      "top": 11.260416984558104,
+      "width": 167.98959350585938,
+      "x": 46.07291793823242,
+      "y": 11.260416984558104
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 62.48958587646485,
+      "height": 27,
+      "left": 598.6771240234375,
+      "right": 921.9896240234376,
+      "top": 35.489585876464844,
+      "width": 323.3125,
+      "x": 598.6771240234375,
+      "y": 35.489585876464844
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 1536
+  },
+  {
+    "actionsBounds": {
+      "bottom": 123.16666793823242,
+      "height": 83.4375,
+      "left": 1795.625,
+      "right": 2461.40625,
+      "top": 39.72916793823242,
+      "width": 665.78125,
+      "x": 1795.625,
+      "y": 39.72916793823242
+    },
+    "cardBottom": 1275.187530517578,
+    "centerOffset": 0,
+    "height": 1353,
+    "logoBounds": {
+      "bottom": 144.16666984558103,
+      "height": 125.42708587646484,
+      "left": 76.59375,
+      "right": 355.8645935058594,
+      "top": 18.73958396911621,
+      "width": 279.2708435058594,
+      "x": 76.59375,
+      "y": 18.73958396911621
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 103.89583587646484,
+      "height": 44.88541793823242,
+      "left": 997.875,
+      "right": 1540.125,
+      "top": 59.01041793823242,
+      "width": 542.25,
+      "x": 997.875,
+      "y": 59.01041793823242
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 2553
+  },
+  {
+    "actionsBounds": {
+      "bottom": 66,
+      "height": 48,
+      "left": 796.5833740234375,
+      "right": 1148.6667175292969,
+      "top": 18,
+      "width": 352.0833435058594,
+      "x": 796.5833740234375,
+      "y": 18
+    },
+    "cardBottom": 763.2708740234375,
+    "centerOffset": -0.17,
+    "height": 800,
+    "logoBounds": {
+      "bottom": 72.31250190734863,
+      "height": 60.63541793823242,
+      "left": 36,
+      "right": 171,
+      "top": 11.677083969116213,
+      "width": 135,
+      "x": 36,
+      "y": 11.677083969116213
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 54,
+      "height": 24,
+      "left": 452.7291870117187,
+      "right": 731.9375305175781,
+      "top": 30,
+      "width": 279.2083435058594,
+      "x": 452.7291870117187,
+      "y": 30
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 1200
+  },
+  {
+    "actionsBounds": {
+      "bottom": 75.58333587646484,
+      "height": 35.16666793823242,
+      "left": 622.96875,
+      "right": 729.6354217529297,
+      "top": 40.41666793823242,
+      "width": 106.66667175292967,
+      "x": 622.96875,
+      "y": 40.41666793823242
+    },
+    "cardBottom": 1090.875,
+    "centerOffset": -0.17,
+    "height": 1024,
+    "logoBounds": {
+      "bottom": 96,
+      "height": 76,
+      "left": 23.03125,
+      "right": 183.03125,
+      "top": 20,
+      "width": 160,
+      "x": 23.03125,
+      "y": 20
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 70,
+      "height": 24,
+      "left": 250.6666717529297,
+      "right": 502.00001525878906,
+      "top": 46,
+      "width": 251.33334350585935,
+      "x": 250.6666717529297,
+      "y": 46
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 768
+  },
+  {
+    "actionsBounds": {
+      "bottom": 75.58333587646484,
+      "height": 35.16666793823242,
+      "left": 500.09375,
+      "right": 606.7604217529297,
+      "top": 40.41666793823242,
+      "width": 106.66667175292967,
+      "x": 500.09375,
+      "y": 40.41666793823242
+    },
+    "cardBottom": 1095.7083740234375,
+    "centerOffset": 0,
+    "height": 800,
+    "logoBounds": {
+      "bottom": 96,
+      "height": 76,
+      "left": 19.23958396911621,
+      "right": 179.2395839691162,
+      "top": 20,
+      "width": 160,
+      "x": 19.23958396911621,
+      "y": 20
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 70,
+      "height": 24,
+      "left": 187.33334350585935,
+      "right": 438.6666870117187,
+      "top": 46,
+      "width": 251.33334350585935,
+      "x": 187.33334350585935,
+      "y": 46
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 641
+  },
+  {
+    "actionsBounds": {
+      "bottom": 68.55208396911621,
+      "height": 48.125,
+      "left": 1094.822998046875,
+      "right": 1474.5938415527344,
+      "top": 20.42708396911621,
+      "width": 379.7708435058594,
+      "x": 1094.822998046875,
+      "y": 20.42708396911621
+    },
+    "centerOffset": -0.17,
+    "height": 784,
+    "logoBounds": {
+      "bottom": 78.97917175292969,
+      "height": 68.97917175292969,
+      "left": 46.07291793823242,
+      "right": 199.6666679382324,
+      "top": 10,
+      "width": 153.59375,
+      "x": 46.07291793823242,
+      "y": 10
+    },
+    "logoLoaded": true,
+    "logoSource": "/_next/image?url=%2Fimages%2Flogo.png&w=3840&q=75",
+    "navBounds": {
+      "bottom": 56.01041793823242,
+      "height": 23.041667938232425,
+      "left": 615.2604370117188,
+      "right": 905.406280517578,
+      "top": 32.96875,
+      "width": 290.1458435058594,
+      "x": 615.2604370117188,
+      "y": 32.96875
+    },
+    "navVisible": true,
+    "overflow": false,
+    "overlap": false,
+    "width": 1536
+  }
+]

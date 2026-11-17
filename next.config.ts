@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     cpus: 1,
+    agentUpgrade: 'security',
   },
   async redirects() {
     return [

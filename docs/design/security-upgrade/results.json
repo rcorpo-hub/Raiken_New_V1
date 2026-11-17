@@ -1,0 +1,259 @@
+{
+  "base": "http://127.0.0.1:3000",
+  "checks": [
+    {
+      "name": "Homepage service tabs: click and keyboard",
+      "passed": true
+    },
+    {
+      "name": "Laptop homepage",
+      "passed": true,
+      "details": {
+        "scroll": 1536,
+        "width": 1536
+      }
+    },
+    {
+      "name": "Large monitor homepage",
+      "passed": true,
+      "details": {
+        "scroll": 2553,
+        "width": 2553
+      }
+    },
+    {
+      "name": "Complete service panel visible at laptop and large-monitor sizes",
+      "passed": true,
+      "details": {
+        "laptopPanel": {
+          "x": 578.71875,
+          "y": 200,
+          "width": 911.203125,
+          "height": 653
+        },
+        "largePanel": {
+          "x": 961.890625,
+          "y": 332.390625,
+          "width": 1514.53125,
+          "height": 942.453125
+        }
+      }
+    },
+    {
+      "name": "Forms scope, search, empty state, service switching and subgroups",
+      "passed": true,
+      "details": {
+        "personal": 7,
+        "business": 7,
+        "conveyancing": 7,
+        "all": 24,
+        "company": 2,
+        "trust": 5
+      }
+    },
+    {
+      "name": "All directory destinations and supporting public routes load",
+      "passed": true,
+      "details": [
+        {
+          "route": "/new-individual-client-form",
+          "status": 200
+        },
+        {
+          "route": "/new-individual-tax-file-number-application",
+          "status": 200
+        },
+        {
+          "route": "/new-individual-abn-application",
+          "status": 200
+        },
+        {
+          "route": "/new-client-questionnaire-form",
+          "status": 200
+        },
+        {
+          "route": "/tax-declaration-form",
+          "status": 200
+        },
+        {
+          "route": "/rideshare-taxi-gst",
+          "status": 200
+        },
+        {
+          "route": "/rental-property-summary",
+          "status": 200
+        },
+        {
+          "route": "/new-company-client-form",
+          "status": 200
+        },
+        {
+          "route": "/new-company-registration",
+          "status": 200
+        },
+        {
+          "route": "/new-trust-client-form",
+          "status": 200
+        },
+        {
+          "route": "/new-trust-registration",
+          "status": 200
+        },
+        {
+          "route": "/shiva-family-trust",
+          "status": 200
+        },
+        {
+          "route": "/shree-ashapuri-unit-trust",
+          "status": 200
+        },
+        {
+          "route": "/paarthav-family-trust",
+          "status": 200
+        },
+        {
+          "route": "/nc/i-am-purchaser",
+          "status": 200
+        },
+        {
+          "route": "/nc/i-am-vendor",
+          "status": 200
+        },
+        {
+          "route": "/nc",
+          "status": 200
+        },
+        {
+          "route": "/residential-property",
+          "status": 200
+        },
+        {
+          "route": "/form-for-vendor-sales",
+          "status": 200
+        },
+        {
+          "route": "/buyer-form",
+          "status": 200
+        },
+        {
+          "route": "/quote-calculator",
+          "status": 200
+        },
+        {
+          "route": "/digital-signature",
+          "status": 200
+        },
+        {
+          "route": "/contact-us",
+          "status": 200
+        },
+        {
+          "route": "/appointment-booking-form",
+          "status": 200
+        },
+        {
+          "route": "/team",
+          "status": 200
+        },
+        {
+          "route": "/support",
+          "status": 200
+        },
+        {
+          "route": "/blog",
+          "status": 200
+        },
+        {
+          "route": "/appointment",
+          "status": 200
+        },
+        {
+          "route": "/call-now",
+          "status": 200
+        },
+        {
+          "route": "/newsletter",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "name": "Existing redirects preserved",
+      "passed": true
+    },
+    {
+      "name": "Contact controlled inputs and required-field validation; no request submitted",
+      "passed": true
+    },
+    {
+      "name": "Calculator legal fee changes total 1551 → 1561 and resets",
+      "passed": true
+    },
+    {
+      "name": "Appointment meeting-format selection",
+      "passed": true
+    },
+    {
+      "name": "Phone homepage",
+      "passed": true,
+      "details": {
+        "scroll": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "Mobile menu opens and Escape closes it",
+      "passed": true
+    },
+    {
+      "name": "Phone /forms?service=personal-tax",
+      "passed": true,
+      "details": {
+        "scroll": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "Phone /contact-us",
+      "passed": true,
+      "details": {
+        "scroll": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "Phone /team",
+      "passed": true,
+      "details": {
+        "scroll": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "Phone /new-individual-client-form",
+      "passed": true,
+      "details": {
+        "scroll": 390,
+        "width": 390
+      }
+    },
+    {
+      "name": "Tablet contact",
+      "passed": true,
+      "details": {
+        "scroll": 768,
+        "width": 768
+      }
+    },
+    {
+      "name": "No browser runtime errors, failed responses, failed resources or form submissions",
+      "passed": true
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "failedResponses": [],
+  "failedRequests": [],
+  "submissions": 0,
+  "passed": true
+}

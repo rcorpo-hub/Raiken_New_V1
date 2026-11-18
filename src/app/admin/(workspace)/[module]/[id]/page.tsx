@@ -42,10 +42,10 @@ export default async function RecordPage({params}:{params:Promise<{module:string
   return <>{heading(title,`${row.reference} · ${category} · Received ${formatDate(String(row.received_at))} · Form version ${version?.version||'recorded'}`)}
    <div className="admin-record-layout"><div>
     <section className="admin-panel admin-submission-entry">
-     <div className="admin-panel-heading"><div><h2>{latest?'Current working information':'Submitted information'}</h2><p>Questions are shown from the form version used for this submission.</p></div><StatusBadge value={String(row.status)}/></div>
-     <SubmissionAnswers answers={working} schema={version?.schema_json} contact={contact}/>
+     <div className="admin-panel-heading"><div><h2>{latest?'Current working information':'Submitted information'}</h2><p>This completed form is read-only. Original submitted answers are preserved.</p></div><StatusBadge value={String(row.status)}/></div>
+     <SubmissionAnswers idPrefix={`submission-${id}-working`} answers={working} schema={version?.schema_json} contact={contact}/>
     </section>
-    {latest&&<details className="admin-panel admin-original-entry"><summary>Original submitted answers — preserved</summary><SubmissionAnswers answers={original} schema={version?.schema_json} contact={contact} caption="Original submitted answers"/></details>}
+    {latest&&<details className="admin-panel admin-original-entry"><summary>Original submitted answers — preserved</summary><SubmissionAnswers idPrefix={`submission-${id}-original`} answers={original} schema={version?.schema_json} contact={contact} caption="Original submitted answers"/></details>}
     <section className="admin-panel admin-editor"><h2>Review history</h2>{reviews?.length?<ul className="admin-timeline">{reviews.map(review=><li key={review.id}><strong>{readable(review.status_to||'Reviewed')}</strong><time>{formatDate(review.created_at)}</time><p>{review.note_text||'Status updated.'}</p></li>)}</ul>:<p className="admin-muted">No review notes yet.</p>}{!!corrections?.length&&<p className="admin-small">{corrections.length} correction version{corrections.length===1?'':'s'} retained. Original answers have not been replaced.</p>}</section>
    </div>{session.access.permissions.includes('submissions.review')&&<ReviewEditor id={id} revision={Number(row.revision)} status={String(row.status)} answers={working} canCorrect={session.access.permissions.includes('submissions.correct')}/>}</div>
   </>;

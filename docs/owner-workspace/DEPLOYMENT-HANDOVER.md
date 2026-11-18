@@ -133,4 +133,4 @@ The client still needs to decide whether to import old records. Do not access/de
 
 If staging fails, keep the current live website in place and restore the previous app build/environment as appropriate. Do not reset the database or rotate the encryption key to fix an application error. Production cutover and DNS changes require their own approved plan after hosted acceptance.
 
-For the new submission category/form filters and Field / Value entries, see [Submission review](SUBMISSION-REVIEW.md).
+For the new submission category/form filters and read-only completed forms, see [Submission review](SUBMISSION-REVIEW.md).

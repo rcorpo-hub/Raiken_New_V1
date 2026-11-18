@@ -189,3 +189,22 @@
  .admin-table-tools > label.admin-service-filter { min-width:0; width:100%; }
  .admin-original-entry > summary { padding:17px; }
 }
+
+/* Read-only completed forms retain the saved question labels and values. */
+.admin-completed-form { padding:0 25px 25px; }
+.admin-completed-section { min-width:0; border:0; margin:0; padding:22px 0 0; }
+.admin-completed-section + .admin-completed-section { border-top:1px solid var(--admin-line); margin-top:25px; }
+.admin-completed-section legend { float:left; width:100%; margin:0 0 18px; padding:0; font-size:13px; font-weight:650; color:var(--admin-text); }
+.admin-completed-grid { clear:both; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.admin-completed-field { min-width:0; }
+.admin-completed-field > label { display:block; font-size:12px; font-weight:500; color:#606752; margin-bottom:8px; overflow-wrap:anywhere; }
+.admin-completed-field-wide { grid-column:1/-1; }
+.admin-root .admin-completed-field :is(input[readonly],textarea[readonly]) { background:#fafaf6; border-color:#dedfd4; font-size:13px; font-weight:400; line-height:1.6; cursor:text; }
+.admin-completed-field textarea { display:block; min-height:95px; }
+.admin-completed-field .admin-completed-missing::placeholder { color:#7e8475; opacity:1; font-style:italic; }
+.admin-completed-checkbox { min-height:44px; display:flex; align-items:center; gap:10px; border:1px solid #dedfd4; border-radius:5px; padding:10px 12px; background:#fafaf6; }
+.admin-completed-checkbox input { accent-color:var(--admin-accent); width:17px; height:17px; margin:0; }
+.admin-completed-checkbox span { font-size:13px; color:#343c2a; }
+.admin-completed-complex { background:#fafaf6; border:1px solid #dedfd4; border-radius:5px; padding:14px; font-size:13px; overflow-wrap:anywhere; }
+.admin-original-entry .admin-completed-form { padding-top:0; }
+@media(max-width:650px){.admin-completed-form{padding:0 17px 20px}.admin-completed-grid{grid-template-columns:1fr;gap:17px}.admin-completed-field-wide{grid-column:auto}}

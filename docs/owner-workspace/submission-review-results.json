@@ -18,15 +18,19 @@
       "passed": true
     },
     {
-      "name": "Managed entries show original form title/order/labels, contact inputs, choice labels, zero, No and blank fields; saved markup is escaped",
+      "name": "Managed completed forms retain original title/order/labels, contact details, choice labels, zero, No and blank fields; all values are read-only and markup is escaped",
       "passed": true
     },
     {
-      "name": "Existing purchaser entries use every saved form input label and retain values independently of answer-object order",
+      "name": "Existing purchaser completed forms retain every saved question label and value independently of answer-object order",
       "passed": true
     },
     {
-      "name": "Submission list filters and Field/Value entries fit laptop, large monitor, tablet and phone widths",
+      "name": "Original and corrected forms show distinct values with unique field labels; permitted staff see read-only submitted fields without correction access",
+      "passed": true
+    },
+    {
+      "name": "Submission filters and read-only completed forms fit laptop, large monitor, tablet and phone widths",
       "passed": true
     },
     {

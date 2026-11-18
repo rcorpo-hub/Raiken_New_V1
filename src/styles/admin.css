@@ -208,3 +208,14 @@
 .admin-completed-complex { background:#fafaf6; border:1px solid #dedfd4; border-radius:5px; padding:14px; font-size:13px; overflow-wrap:anywhere; }
 .admin-original-entry .admin-completed-form { padding-top:0; }
 @media(max-width:650px){.admin-completed-form{padding:0 17px 20px}.admin-completed-grid{grid-template-columns:1fr;gap:17px}.admin-completed-field-wide{grid-column:auto}}
+
+/* Only the Submissions office selector applies immediately. */
+.admin-office-tools { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:17px 20px; border-bottom:1px solid var(--admin-line); }
+.admin-office-label { font-size:12px; font-weight:600; color:#606752; }
+.admin-office-options { display:flex; flex-wrap:wrap; gap:6px; }
+.admin-office-options button { padding:8px 14px; min-height:40px; border:1px solid #d7dacd; border-radius:5px; background:#fafaf6; color:#535b49; font-size:12px; cursor:pointer; }
+.admin-office-options button:hover:not(:disabled) { background:#eef0e5; }
+.admin-office-options button[aria-pressed=true] { background:#fff0e8; border-color:#d83b18; color:#ad3218; font-weight:600; }
+.admin-office-options button:focus-visible { outline:2px solid #ba381b; outline-offset:3px; }
+.admin-office-hint { color:var(--admin-muted); font-size:11px; margin-left:auto; }
+@media(max-width:600px){.admin-office-tools{padding:15px;gap:10px}.admin-office-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.admin-office-hint{margin-left:0}}

@@ -1,0 +1,3004 @@
+[
+  {
+    "id": 5116,
+    "title": "I am Purchaser (Form 5116)",
+    "category": "Conveyancing",
+    "description": "Comprehensive conveyancing intake for buyers of residential/commercial property in Australia.",
+    "path": "/nc/i-am-purchaser",
+    "slug": "i-am-purchaser",
+    "fields": [
+      {
+        "key": "firstName",
+        "label": "First / Given Name *",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "lastName",
+        "label": "Last / Surname *",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "secondPurchaserName",
+        "label": "Second Purchaser Full Name *",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "companyName",
+        "label": "Company / Corporate Trustee Name *",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "acn",
+        "label": "ACN / ABN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "Email Address *",
+        "type": "email",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "phone",
+        "label": "Mobile Phone *",
+        "type": "tel",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "residentialAddress",
+        "label": "Current Residential Address",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "isCitizen",
+        "label": "Residency Status for Stamp Duty Calculation",
+        "type": "select",
+        "required": false,
+        "options": [
+          {
+            "value": "yes",
+            "label": "Australian Citizen / Permanent Resident"
+          },
+          {
+            "value": "foreign_buyer",
+            "label": "Foreign Resident (Foreign Buyer Surcharge Applies)"
+          }
+        ]
+      },
+      {
+        "key": "propertyAddress",
+        "label": "Property Address *",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "purchasePrice",
+        "label": "Agreed Purchase Price ($ AUD) *",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "depositPaid",
+        "label": "Deposit Amount Paid ($ AUD)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "settlementDate",
+        "label": "Target Settlement Date",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "realEstateAgency",
+        "label": "Selling Real Estate Agency",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "lenderName",
+        "label": "Lending Institution (Bank) *",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "brokerName",
+        "label": "Mortgage Broker Name / Contact",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "firstHomeBuyer",
+        "label": "Are you a First Home Buyer?",
+        "type": "select",
+        "required": false,
+        "options": [
+          {
+            "value": "no",
+            "label": "No, standard buyer"
+          },
+          {
+            "value": "yes",
+            "label": "Yes, eligible for First Home Buyer Duty Concessions"
+          }
+        ]
+      },
+      {
+        "key": "declarationAgreed",
+        "label": "I have read, understood, and agree to the statutory declaration and retain Raiken Corporation as our representative conveyancers. *",
+        "type": "checkbox",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "signatureName",
+        "label": "Electronic Signature (Type Full Legal Name) *",
+        "type": "text",
+        "required": true,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 5121,
+    "title": "I am Vendor (Form 5121)",
+    "category": "Conveyancing",
+    "description": "Conveyancing intake for property sellers and vendors.",
+    "path": "/nc/i-am-vendor",
+    "slug": "i-am-vendor",
+    "fields": [],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 724,
+    "title": "Residential Property Form",
+    "category": "Conveyancing",
+    "description": "Property and vendor details, agent information and payment instructions.",
+    "path": "/residential-property",
+    "slug": "residential-property",
+    "fields": [
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Vendor_names",
+        "label": "Vendor_names",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Vendor_Postal_Address",
+        "label": "icon",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Sale_Property_Street",
+        "label": "Vendor (name/s)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Volume",
+        "label": "Vendor Postal Address",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "folio",
+        "label": "Sale Property Street",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Vendors_Mobile",
+        "label": "Volume",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone_number",
+        "label": "Folio",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Vendors_Email",
+        "label": "Phone Number",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Agency",
+        "label": "Agency",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Mobile",
+        "label": "icon",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Salesperson",
+        "label": "Agency",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email_1",
+        "label": "Mobile",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "COSTS",
+        "label": "Salesperson",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Payment_By",
+        "label": "Email address",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Please_Attach_Receipt",
+        "label": "Please_attach_receipt",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Is_the_property_subject_to_any_loan_or_mortgage_that_is_NOT_registered_on_the_title",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "advise_name_of_lender",
+        "label": "COSTS",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Is_there_any_tenancy_or_unregistered_lease_agreement_for_lease_or_licence_to_occupy_either_written_or_verbal_relating_to_the_property",
+        "label": "Payment By",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Has_there_been_any_notice_issued_under_Section_5_of_the_Fences_Act_1975",
+        "label": "Please Attach Receipt",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 727,
+    "title": "Form For Vendor (Sales)",
+    "category": "Conveyancing",
+    "description": "Seller settlement, forwarding-address and bank-account instructions.",
+    "path": "/form-for-vendor-sales",
+    "slug": "form-for-vendor-sales",
+    "fields": [
+      {
+        "key": "Sales_of",
+        "label": "Sales of",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "After_settlement",
+        "label": "After settlement",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "address_line_1",
+        "label": "Address Line 1",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_2",
+        "label": "Address Line 2",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "suburb",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Account_Name",
+        "label": "Account Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Account_Number",
+        "label": "Account Number",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Bank_Cr_Union",
+        "label": "Bank / Cr Union",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Branch",
+        "label": "Branch",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "BSB_No",
+        "label": "BSB No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "IWe_are_not_registered_for_GST",
+        "label": "I/We are not registered for GST",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "ABN_Number",
+        "label": "ABN Number",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "MyOur_current_day_time_phone_no_is",
+        "label": "My/Our current day time phone no. is",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_UPgAz",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_avaud",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_awcna",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_SYVCO",
+        "label": "Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_UNpia",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 732,
+    "title": "Buyer Form",
+    "category": "Conveyancing",
+    "description": "Buyer ownership type and purchaser details.",
+    "path": "/buyer-form",
+    "slug": "buyer-form",
+    "fields": [
+      {
+        "key": "are_you_buying",
+        "label": "Are you buying ?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "number_of_owners",
+        "label": "Number of Owners?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "first_name",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "dob",
+        "label": "DOB",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_IiBPv",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_nzUva",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_rvLlv",
+        "label": "DOB",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_AcyhI",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_vfOmn",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_gWnwc",
+        "label": "DOB",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_bvyZM",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_xrKlT",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_NuAUu",
+        "label": "DOB",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_ehZHA",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_bjoJA",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_KJlGs",
+        "label": "DOB",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_NKEKy",
+        "label": "First name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_jRVLI",
+        "label": "Last name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_InjAu",
+        "label": "DOB",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3992,
+    "title": "Quote Calculator",
+    "category": "Conveyancing",
+    "description": "Instant fee estimate for accounting, conveyancing, and statutory disbursements.",
+    "path": "/quote-calculator",
+    "slug": "quote-calculator",
+    "fields": [
+      {
+        "key": "name",
+        "label": "Your Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "Your Email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone",
+        "label": "Phone / Mobile",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Property_Price",
+        "label": "Property Purchase Price ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Our_Fees",
+        "label": "Legal Conveyancing Fees ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Stamp_Duty",
+        "label": "Estimated Stamp Duty ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Lodgement_Fees",
+        "label": "Lodgement Fees ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Transaction_fees",
+        "label": "Transaction Fees ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "LTO_Mortgage_Registration_Fees",
+        "label": "LTO Mortgage Registration ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Priority_Notices_optional",
+        "label": "Priority Notices (Optional) ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "New_Title_post_settlement_optional",
+        "label": "New Title Post Settlement (Optional) ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Vendor_Fees",
+        "label": "Vendor Legal Fees ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "LTO_Discharge_of_Mortgage_Registration",
+        "label": "LTO Discharge of Mortgage ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Special_Water_Meter_Reading",
+        "label": "Special Water Meter Reading ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Torrens_Title_Form_1",
+        "label": "Torrens Title Form 1 ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Community_Lot_Form_1",
+        "label": "Community Lot Form 1 ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 627,
+    "title": "New Individual Client Form",
+    "category": "Registration",
+    "description": "Onboarding questionnaire for individual personal accounting and legal matters.",
+    "path": "/new-individual-client-form",
+    "slug": "new-individual-client-form",
+    "fields": [
+      {
+        "key": "officeemail",
+        "label": "Office",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Date_of_Birth",
+        "label": "Date of Birth",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_No",
+        "label": "Contact No",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Refferred_By",
+        "label": "Refferred_by",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "addressline-1",
+        "label": "icon",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "addressline-2",
+        "label": "Referred By",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "suburb",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "state",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "Zip Code",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "BSB",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Account_No",
+        "label": "TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "bank_name",
+        "label": "BSB",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Authorize",
+        "label": "Account No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_cXXvh",
+        "label": "Bank Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "signature",
+        "label": "Authorize",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "file",
+        "label": "Authorize",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 704,
+    "title": "New Individual TFN Application",
+    "category": "Taxation",
+    "description": "Application assistance and ATO documentation for Tax File Numbers.",
+    "path": "/new-individual-tax-file-number-application",
+    "slug": "new-individual-tax-file-number-application",
+    "fields": [
+      {
+        "key": "officeemail",
+        "label": "Office",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Middle_Name",
+        "label": "Middle Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_No",
+        "label": "Contact_no",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Date_of_Birth",
+        "label": "icon",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "gender",
+        "label": "Contact No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "address_line_1",
+        "label": "Date of Birth",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "address_line_2",
+        "label": "Gender",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "suburb",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zip_code",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "state",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Passport_No",
+        "label": "Zip Code",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Attach_copy_of_passport",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "country_of_passport",
+        "label": "Passport No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "any_other_name",
+        "label": "Attach copy of Passport",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Number_of_Previous_Name",
+        "label": "Country of passport?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "title",
+        "label": "Are you, or have you been known by, any other names?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Family_name",
+        "label": "Number of Previous Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 713,
+    "title": "New Individual ABN Application",
+    "category": "Taxation",
+    "description": "Australian Business Number registration for sole traders and contractors.",
+    "path": "/new-individual-abn-application",
+    "slug": "new-individual-abn-application",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Are_you_existing_client",
+        "label": "Are you existing client ?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Middle_Name",
+        "label": "Middle Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_No",
+        "label": "Contact No",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_GuDfP",
+        "label": "Field_gudfp",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_OlxFP",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_uIugc",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_wKOAC",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_awnQn",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_Afgci",
+        "label": "Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_EyzGY",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_ZgAeb",
+        "label": "Date of Birth",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_hDLfK",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_ILniz",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_LhAeY",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_nIUHS",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 716,
+    "title": "New Company Client Form",
+    "category": "Corporate",
+    "description": "Corporate client onboarding for Pty Ltd and public companies.",
+    "path": "/new-company-client-form",
+    "slug": "new-company-client-form",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Company_Name",
+        "label": "Company Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "ABN",
+        "label": "ABN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "ACN",
+        "label": "ACN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_1",
+        "label": "Address Line 1",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_2",
+        "label": "Address Line 2",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "suburb",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "state",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_Person",
+        "label": "Contact Person",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_No",
+        "label": "Contact No",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Email_Address",
+        "label": "Email Address",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Position_Held",
+        "label": "Position_held",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Services_Required",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Authorizes_Ms_Raikan_Corporation_Pty_Ltd",
+        "label": "Position Held",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "field_UmEox",
+        "label": "Services Required",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "hidden_1",
+        "label": "Authorizes M/s Raikan Corporation Pty Ltd",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "signature",
+        "label": "Authorizes M/s Raikan Corporation Pty Ltd",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Name",
+        "label": "Authorizes",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Position",
+        "label": "Signature",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 995,
+    "title": "New Company Registration",
+    "category": "Corporate",
+    "description": "ASIC company incorporation with constitutions and share register.",
+    "path": "/new-company-registration",
+    "slug": "new-company-registration",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Branch Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Name_of_the_Company",
+        "label": "Name_of_the_company",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "The_registration_State_of_the_company",
+        "label": "autosuggest_items",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_1",
+        "label": "Name of the Company ( Subject to availability)",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_2",
+        "label": "The registration State of the company",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Companys_email",
+        "label": "Zipcode",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Companys_contact_number",
+        "label": "State",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Main_Business_Activity",
+        "label": "Main_business_activity",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "From_which_date_you_require_your_Australian_Business_Number_to_be_activated_",
+        "label": "autosuggest_items",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_Place_of_Business",
+        "label": "Main Business Activity",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_Address_Line_1",
+        "label": "From which date you require your Australian Business Number to be activated?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_Address_Line_2",
+        "label": "Principal Place of Business",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_Suburb",
+        "label": "Principal Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_Zipcode",
+        "label": "Principal Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Principal_State",
+        "label": "Principal Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Directors_first_name",
+        "label": "Principal Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 719,
+    "title": "New Trust Client Form",
+    "category": "Trusts",
+    "description": "Discretionary family trust establishment and trustee verification.",
+    "path": "/new-trust-client-form",
+    "slug": "new-trust-client-form",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Name_of_Trust",
+        "label": "Name of Trust",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Type_of_Trust",
+        "label": "Type of Trust",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_Trust",
+        "label": "Type of Trust (Other)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Trust_TFN",
+        "label": "Trust TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Do_you_have_company_as_a_trustee",
+        "label": "Do you have company as a trustee?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Company_Name",
+        "label": "Company_name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "ACN",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_1",
+        "label": "Company Name",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_2",
+        "label": "ACN",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "suburb",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "state",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_Person",
+        "label": "Zipcode",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Contact_No",
+        "label": "State",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Position_Held",
+        "label": "Contact Person",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Email_Address",
+        "label": "Contact No",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Services_Required",
+        "label": "Position Held",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Authorizes_Ms_Raikan_Corporation_Pty_Ltd",
+        "label": "Email Address",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 1055,
+    "title": "New Trust Registration",
+    "category": "Trusts",
+    "description": "Registration of business, unit, and investment trust structures.",
+    "path": "/new-trust-registration",
+    "slug": "new-trust-registration",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Branch Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_kind_of_trust_you_wish_to_register",
+        "label": "What_kind_of_trust_you_wish_to_register",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Trust_Name",
+        "label": "autosuggest_items",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_1",
+        "label": "What kind of trust you wish to register?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_2",
+        "label": "Trust Name",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb",
+        "label": "Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "zipcode",
+        "label": "Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State",
+        "label": "Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_date_your_trust_deed_you_wish_to_be_established",
+        "label": "Zipcode",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "The_registration_State_of_the_company",
+        "label": "State",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_first_name",
+        "label": "What date your trust deed you wish to be established?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_Middle_Name",
+        "label": "The registration State of the company",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_last_name",
+        "label": "Settlor First Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_Address_Line_1",
+        "label": "Settlor Middle Name",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_Address_Line_2",
+        "label": "Settlor Last Name",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_Suburb",
+        "label": "Settlor Address Line 1",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_Zipcode",
+        "label": "Settlor Address Line 2",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Settlor_State",
+        "label": "Settlor Suburb",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Number_of_Trustees",
+        "label": "Settlor Zipcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 2549,
+    "title": "New Client Questionnaire",
+    "category": "Registration",
+    "description": "Individual client questionnaire, identity and contact details.",
+    "path": "/new-client-questionnaire-form",
+    "slug": "new-client-questionnaire-form",
+    "fields": [
+      {
+        "key": "Select_Branch_Office",
+        "label": "Office",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Number_of_Applicant",
+        "label": "Number_of_applicant",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Name_of_Applicant",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "As_Primary_Applicant",
+        "label": "Number of. Applicant",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Known_by_any_other_name",
+        "label": "Name of Applicant",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Previous_Name",
+        "label": "As Primary Applicant",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Gender",
+        "label": "Known by any other name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Title",
+        "label": "Previous Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "DOB_1",
+        "label": "Gender",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Mob_No",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Email_Address",
+        "label": "DOB",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Passport_No",
+        "label": "Mob No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Attach_copy_of_passport_1",
+        "label": "Email Address",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Driver_License_No",
+        "label": "Driver_license_no",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Attach_copy_of_driving_licence_1",
+        "label": "icon",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Visa_Status",
+        "label": "Passport No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Visa_Subclass_No",
+        "label": "Attach copy of passport",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Attach_copy_of_visa",
+        "label": "Driver License No",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Address_Line_1",
+        "label": "Attach copy of driving licence",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3057,
+    "title": "Tax Declaration Form",
+    "category": "Taxation",
+    "description": "Provide TFN, employment and tax-free-threshold details for your payer.",
+    "path": "/tax-declaration-form",
+    "slug": "tax-declaration-form",
+    "fields": [
+      {
+        "key": "Do_have_TFN",
+        "label": "Do You Have TFN No?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_Not_TFN_No",
+        "label": "Option",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Surname_or_family_name",
+        "label": "Surname or family name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "First_given_name",
+        "label": "First given name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_given_names",
+        "label": "Other given names",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_is_your_home_address_in_Australia",
+        "label": "What is your home address in Australia?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb_town_locality",
+        "label": "Suburb/town/locality",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State_territory",
+        "label": "State / territory",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Postcode",
+        "label": "Postcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_you_have_changed_your_name_since_you_last_dealt_with_the_ATO_provide_your_previous_family_name_",
+        "label": "If you have changed your name since you last dealt with the ATO, provide your previous family name.",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "date_of_birth",
+        "label": "Date of birth?",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "On_what_basis_are_you_paid",
+        "label": "On what basis are you paid?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Are_you",
+        "label": "Are you",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Do_you_want_to_claim_the_tax-free_threshold_from_this_payer",
+        "label": "Do you want to claim the tax-free threshold from this payer?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "a_Do_you_have_a_Higher_Education_Loan_Program_HELP_Student_Start-up_Loan_SSL_or_Trade_Support_Loan_TSL_debt",
+        "label": "(a) Do you have a Higher Education Loan Program (HELP), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "b_Do_you_have_a_Financial_Supplement_debt",
+        "label": "(b) Do you have a Financial Supplement debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone_number",
+        "label": "Phone number",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3235,
+    "title": "Rideshare / Taxi GST Form",
+    "category": "Taxation",
+    "description": "Quarterly BAS and GST registration for Uber/taxi drivers.",
+    "path": "/rideshare-taxi-gst",
+    "slug": "rideshare-taxi-gst",
+    "fields": [
+      {
+        "key": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phonenumber",
+        "label": "Phone number",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "BASGST_Quarter",
+        "label": "step",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "BASGST_Quarter_Other",
+        "label": "may_be_empty",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Upload_Uber_Ola_Monthly_Statements",
+        "label": "BAS/GST Quarter",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Uber_Income_Gross_Before_Comission",
+        "label": "BASGST Quarter Other",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Ola_Income",
+        "label": "Upload Uber / Ola Monthly Statements",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Uber_Commission_All_three_months",
+        "label": "Uber Income (Gross Before Comission)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Fuel",
+        "label": "Ola Income",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Car_Service",
+        "label": "Uber Commission (All three months)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Car_Rego",
+        "label": "Fuel",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Car_Wash",
+        "label": "Car Service",
+        "type": "text",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3283,
+    "title": "Rental Property Summary",
+    "category": "Taxation",
+    "description": "Annual rental income, depreciation, and expense calculation schedule.",
+    "path": "/rental-property-summary",
+    "slug": "rental-property-summary",
+    "fields": [
+      {
+        "key": "first_name",
+        "label": "First Name",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "last_name",
+        "label": "Last Name",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "Email",
+        "type": "email",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "phonenumber",
+        "label": "Phone Number",
+        "type": "tel",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "Property_Address",
+        "label": "Property Street Address",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "Suburb_town_locality",
+        "label": "Suburb / Locality",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State_territory",
+        "label": "State",
+        "type": "select",
+        "required": false,
+        "options": [
+          {
+            "value": "SA",
+            "label": "SA"
+          },
+          {
+            "value": "QLD",
+            "label": "QLD"
+          },
+          {
+            "value": "WA",
+            "label": "WA"
+          },
+          {
+            "value": "NSW",
+            "label": "NSW"
+          },
+          {
+            "value": "VIC",
+            "label": "VIC"
+          },
+          {
+            "value": "TAS",
+            "label": "TAS"
+          },
+          {
+            "value": "ACT",
+            "label": "ACT"
+          },
+          {
+            "value": "NT",
+            "label": "NT"
+          }
+        ]
+      },
+      {
+        "key": "Postcode",
+        "label": "Postcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Number_of_Weeks_Property_Was_rented",
+        "label": "Weeks Rented in Tax Year",
+        "type": "number",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Ownership_",
+        "label": "Ownership Percentage (%)",
+        "type": "number",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Gross_Rent",
+        "label": "Gross Rent Received ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_Income_i_e_water_charges_etc",
+        "label": "Other Income (Water charges, insurance recoveries) ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Advertising",
+        "label": "Advertising ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Body_corporate_fees",
+        "label": "Body Corporate / Strata ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Borrowing_expenses",
+        "label": "Borrowing Expenses ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Cleaning",
+        "label": "Cleaning ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Council_rates",
+        "label": "Council Rates ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Depreciable_items",
+        "label": "Depreciable Assets ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Gardeninglawn_mowing",
+        "label": "Gardening / Mowing ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Insurance",
+        "label": "Building & Landlord Insurance ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Interest_on_loans",
+        "label": "Interest on Investment Loans ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Land_tax",
+        "label": "Land Tax ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Legal_fees",
+        "label": "Legal / Conveyancing Fees ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Pest_control",
+        "label": "Pest Control ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Property_management_feescommissions",
+        "label": "Property Agent Management ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Repairs_and_maintenance",
+        "label": "Repairs & Maintenance ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Water_charges",
+        "label": "Water Supply & Usage ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Sundry_rental_expenses",
+        "label": "Sundry Expenses ($)",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "signature",
+        "label": "Full Name / Electronic Signature",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "date",
+        "label": "Date of Lodgement",
+        "type": "date",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3202,
+    "title": "Shiva Family Trust",
+    "category": "Trusts",
+    "description": "TFN and employment tax declaration for Shiva Family Trust.",
+    "path": "/shiva-family-trust",
+    "slug": "shiva-family-trust",
+    "fields": [
+      {
+        "key": "Do_have_TFN",
+        "label": "Do You Have TFN No?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_Not_TFN_No",
+        "label": "Option",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Surname_or_family_name",
+        "label": "Surname or family name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "First_given_name",
+        "label": "First given name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_given_names",
+        "label": "Other given names",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_is_your_home_address_in_Australia",
+        "label": "What is your home address in Australia?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb_town_locality",
+        "label": "Suburb/town/locality",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State_territory",
+        "label": "State / territory",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Postcode",
+        "label": "Postcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_you_have_changed_your_name_since_you_last_dealt_with_the_ATO_provide_your_previous_family_name_",
+        "label": "If you have changed your name since you last dealt with the ATO, provide your previous family name.",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "date_of_birth",
+        "label": "Date of birth?",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "On_what_basis_are_you_paid",
+        "label": "On what basis are you paid?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Are_you",
+        "label": "Are you",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Do_you_want_to_claim_the_tax-free_threshold_from_this_payer",
+        "label": "Do you want to claim the tax-free threshold from this payer?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "a_Do_you_have_a_Higher_Education_Loan_Program_HELP_Student_Start-up_Loan_SSL_or_Trade_Support_Loan_TSL_debt",
+        "label": "(a) Do you have a Higher Education Loan Program (HELP), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "b_Do_you_have_a_Financial_Supplement_debt",
+        "label": "(b) Do you have a Financial Supplement debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone_number",
+        "label": "Phone number",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3211,
+    "title": "Shree Ashapuri Unit Trust",
+    "category": "Trusts",
+    "description": "TFN and employment tax declaration for Shree Ashapuri Unit Trust.",
+    "path": "/shree-ashapuri-unit-trust",
+    "slug": "shree-ashapuri-unit-trust",
+    "fields": [
+      {
+        "key": "Do_have_TFN",
+        "label": "Do You Have TFN No?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_Not_TFN_No",
+        "label": "Option",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Surname_or_family_name",
+        "label": "Surname or family name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "First_given_name",
+        "label": "First given name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_given_names",
+        "label": "Other given names",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_is_your_home_address_in_Australia",
+        "label": "What is your home address in Australia?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb_town_locality",
+        "label": "Suburb/town/locality",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State_territory",
+        "label": "State / territory",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Postcode",
+        "label": "Postcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_you_have_changed_your_name_since_you_last_dealt_with_the_ATO_provide_your_previous_family_name_",
+        "label": "If you have changed your name since you last dealt with the ATO, provide your previous family name.",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "date_of_birth",
+        "label": "Date of birth?",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "On_what_basis_are_you_paid",
+        "label": "On what basis are you paid?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Are_you",
+        "label": "Are you",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Do_you_want_to_claim_the_tax-free_threshold_from_this_payer",
+        "label": "Do you want to claim the tax-free threshold from this payer?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "a_Do_you_have_a_Higher_Education_Loan_Program_HELP_Student_Start-up_Loan_SSL_or_Trade_Support_Loan_TSL_debt",
+        "label": "(a) Do you have a Higher Education Loan Program (HELP), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "b_Do_you_have_a_Financial_Supplement_debt",
+        "label": "(b) Do you have a Financial Supplement debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone_number",
+        "label": "Phone number",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3957,
+    "title": "Paarthav Family Trust",
+    "category": "Trusts",
+    "description": "TFN and employment tax declaration for Paarthav Family Trust.",
+    "path": "/paarthav-family-trust",
+    "slug": "paarthav-family-trust",
+    "fields": [
+      {
+        "key": "Do_have_TFN",
+        "label": "Do You Have TFN No?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "TFN",
+        "label": "TFN",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_Not_TFN_No",
+        "label": "Option",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Surname_or_family_name",
+        "label": "Surname or family name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "First_given_name",
+        "label": "First given name",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Other_given_names",
+        "label": "Other given names",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "What_is_your_home_address_in_Australia",
+        "label": "What is your home address in Australia?",
+        "type": "textarea",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Suburb_town_locality",
+        "label": "Suburb/town/locality",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "State_territory",
+        "label": "State / territory",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Postcode",
+        "label": "Postcode",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "If_you_have_changed_your_name_since_you_last_dealt_with_the_ATO_provide_your_previous_family_name_",
+        "label": "If you have changed your name since you last dealt with the ATO, provide your previous family name.",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "date_of_birth",
+        "label": "Date of birth?",
+        "type": "date",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "On_what_basis_are_you_paid",
+        "label": "On what basis are you paid?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Are_you",
+        "label": "Are you",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "Do_you_want_to_claim_the_tax-free_threshold_from_this_payer",
+        "label": "Do you want to claim the tax-free threshold from this payer?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "a_Do_you_have_a_Higher_Education_Loan_Program_HELP_Student_Start-up_Loan_SSL_or_Trade_Support_Loan_TSL_debt",
+        "label": "(a) Do you have a Higher Education Loan Program (HELP), Student Start-up Loan (SSL) or Trade Support Loan (TSL) debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "b_Do_you_have_a_Financial_Supplement_debt",
+        "label": "(b) Do you have a Financial Supplement debt?",
+        "type": "text",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "phone_number",
+        "label": "Phone number",
+        "type": "tel",
+        "required": false,
+        "options": []
+      },
+      {
+        "key": "email",
+        "label": "email",
+        "type": "email",
+        "required": false,
+        "options": []
+      }
+    ],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 3127,
+    "title": "Digital Signature Portal",
+    "category": "General",
+    "description": "Secure electronic signing and document consent verification.",
+    "path": "/digital-signature",
+    "slug": "digital-signature",
+    "fields": [],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 697,
+    "title": "Contact Us & Enquiry Form",
+    "category": "General",
+    "description": "Direct enquiry and support requests to our Australian branch offices.",
+    "path": "/contact-us",
+    "slug": "contact-us",
+    "fields": [],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 5251,
+    "title": "Appointment Booking Form",
+    "category": "General",
+    "description": "Consultation schedule preferences for Adelaide, Brisbane, and Perth.",
+    "path": "/appointment-booking-form",
+    "slug": "appointment-booking-form",
+    "fields": [],
+    "migrationWarnings": [],
+    "legacy": true
+  },
+  {
+    "id": 0,
+    "title": "Client support enquiry",
+    "category": "General",
+    "description": "Support requests from existing clients.",
+    "path": "/support",
+    "slug": "support",
+    "legacy": true,
+    "migrationWarnings": [],
+    "fields": [
+      {
+        "key": "subject",
+        "label": "Subject",
+        "type": "text",
+        "required": true,
+        "options": []
+      },
+      {
+        "key": "message",
+        "label": "How can we help?",
+        "type": "textarea",
+        "required": true,
+        "options": []
+      }
+    ]
+  }
+]

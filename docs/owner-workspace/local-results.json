@@ -1,0 +1,79 @@
+{
+  "checks": [
+    {
+      "name": "Anonymous business-data reads, draft access, owner bootstrap and public signup are denied",
+      "passed": true
+    },
+    {
+      "name": "Actual owner sign-in, MFA enrollment/verification and server-rendered dashboard; aal1 data access denied",
+      "passed": true
+    },
+    {
+      "name": "Staff branch/permission grants work; self-promotion and editable Auth metadata cannot grant owner access",
+      "passed": true
+    },
+    {
+      "name": "Durable encrypted intake, concurrent retry deduplication, conflict rejection and immutable originals",
+      "passed": true
+    },
+    {
+      "name": "Direct REST/RPC checks enforce cross-office denial and keep submission data away from content editors",
+      "passed": true
+    },
+    {
+      "name": "Pending and unverified files are blocked; private verified fixture downloads are audited and cross-office access is denied",
+      "passed": true
+    },
+    {
+      "name": "Owner review and reasoned corrections retain encrypted history; stale writes fail and original answers remain viewable",
+      "passed": true
+    },
+    {
+      "name": "Content editor can save a private draft but cannot publish it; public site never exposes draft text",
+      "passed": true
+    },
+    {
+      "name": "Staff with only content access land on their permitted section and cannot read client records",
+      "passed": true
+    },
+    {
+      "name": "Owner creates and publishes a real page; stored markup renders as text instead of executing",
+      "passed": true
+    },
+    {
+      "name": "Owner creates/publishes a form; browser submits it into the database, server rejects tampering, and version history plus directory category stay correct",
+      "passed": true
+    },
+    {
+      "name": "Missing Origin, oversized payload and unavailable form are rejected without a false receipt",
+      "passed": true
+    },
+    {
+      "name": "Suspending staff removes data access even with an existing valid session token",
+      "passed": true
+    },
+    {
+      "name": "All 24 registered intake routes and the conveyancing gateway load; category counts stay 7/7/7 plus 3 General; quote totals work in browser and override tampered client totals",
+      "passed": true
+    },
+    {
+      "name": "All twelve workspace sections render using authenticated database queries",
+      "passed": true
+    },
+    {
+      "name": "Laptop, large monitor, tablet and phone layouts have no page overflow; mobile navigation works",
+      "passed": true
+    },
+    {
+      "name": "Content and form editor detail screens open; form builder adds and removes questions",
+      "passed": true
+    },
+    {
+      "name": "No uncaught browser runtime errors",
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "passed": true,
+  "createdSyntheticSubmissions": 4
+}

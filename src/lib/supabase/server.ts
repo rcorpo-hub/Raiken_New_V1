@@ -1,25 +1,12 @@
-import { createServerClient } from '@supabase/ssr';
-import { cookies } from 'next/headers';
-
-export async function createClient() {
-  const cookieStore = await cookies();
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL || '';
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.SUPABASE_PUBLISHABLE_KEY || '';
-
-  return createServerClient(supabaseUrl, supabaseKey, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll();
-      },
-      setAll(cookiesToSet: Array<{ name: string; value: string; options?: any }>) {
-        try {
-          cookiesToSet.forEach(({ name, value, options }) => {
-            cookieStore.set(name, value, options);
-          });
-        } catch {
-          // Handled if invoked from a Server Component where setting cookies is restricted
-        }
-      },
-    },
-  });
+import 'server-only';
+import {createServerClient} from '@supabase/ssr';
+import type {CookieOptions} from '@supabase/ssr';
+import {cookies} from 'next/headers';
+import {publicDatabaseConfig} from '@/lib/workspace/config';
+export async function createClient(){
+  const config=publicDatabaseConfig();if(!config)throw new Error('Supabase is not configured');
+  const store=await cookies();
+  return createServerClient(config.url,config.key,{cookies:{getAll:()=>store.getAll(),setAll(values:{name:string;value:string;options:CookieOptions}[]){
+    try{for(const {name,value,options} of values)store.set(name,value,options);}catch{/* Proxy persists refreshed cookies for Server Components. */}
+  }}});
 }

@@ -1,0 +1,299 @@
+{
+  "checks": [
+    "Meaningful navigation, three office phones/maps, email and WhatsApp; safe external-link attributes",
+    "Every unique internal footer destination returns HTTP 200",
+    "Sitemap links to the working XML sitemap",
+    "Eight responsive widths: no horizontal document or footer-link overflow",
+    "Homepage complete service card still fits laptop opening view",
+    "All three footer service links reach the correct seven-form directory",
+    "City links reach the matching contact office anchor",
+    "Back to top returns to the start of the main content",
+    "Expanded footer is shared by the homepage, forms, contact and team pages",
+    "No browser console/page errors or failed resource responses"
+  ],
+  "errors": [],
+  "failedResources": [],
+  "viewports": [
+    {
+      "width": 360,
+      "height": 800,
+      "scroll": 360,
+      "footerHeight": 1747.953125,
+      "overflow": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scroll": 390,
+      "footerHeight": 1747.953125,
+      "overflow": []
+    },
+    {
+      "width": 640,
+      "height": 900,
+      "scroll": 640,
+      "footerHeight": 1708.15625,
+      "overflow": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scroll": 768,
+      "footerHeight": 1073.796875,
+      "overflow": []
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "scroll": 1024,
+      "footerHeight": 1073.796875,
+      "overflow": []
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "scroll": 1280,
+      "footerHeight": 767.265625,
+      "overflow": []
+    },
+    {
+      "width": 1536,
+      "height": 900,
+      "scroll": 1536,
+      "footerHeight": 819.328125,
+      "overflow": []
+    },
+    {
+      "width": 2553,
+      "height": 1353,
+      "scroll": 2553,
+      "footerHeight": 873.546875,
+      "overflow": []
+    }
+  ],
+  "passed": true,
+  "links": [
+    {
+      "href": "/",
+      "label": "",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "mailto:info@rcorpo.com",
+      "label": "info@rcorpo.com",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "https://wa.me/61452508598",
+      "label": "Chat on WhatsApp (opens in a new tab)",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/forms?service=personal-tax",
+      "label": "Personal tax",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/forms?service=business-accounting",
+      "label": "Business accounting",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/forms?service=conveyancing",
+      "label": "Conveyancing",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/quote-calculator",
+      "label": "Get a conveyancing quote",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/",
+      "label": "Home",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/team",
+      "label": "Our people",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/blog",
+      "label": "Insights",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/contact-us",
+      "label": "Contact us",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/appointment",
+      "label": "Book an appointment",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/forms",
+      "label": "All client forms",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "https://accounts.rcorpo.com/login",
+      "label": "Accounting software (opens in a new tab)",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "/digital-signature",
+      "label": "Digital signatures",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/support",
+      "label": "Client support",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/contact-us",
+      "label": "Make an enquiry",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/contact-us#adelaide",
+      "label": "Adelaide",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "https://www.google.com/maps/search/?api=1&query=Shop%203%2C%20160%20Hampstead%20Road%2C%20Broadview%20SA%205083",
+      "label": "Shop 3, 160 Hampstead Road, Broadview SA 5083 (opens in Google Maps in a new tab)",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:0870769899",
+      "label": "08 7076 9899",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/contact-us#brisbane",
+      "label": "Brisbane",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "https://www.google.com/maps/search/?api=1&query=22%20Van%20Dieren%20Road%2C%20Pallara%20QLD%204110",
+      "label": "22 Van Dieren Road, Pallara QLD 4110 (opens in Google Maps in a new tab)",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:0721029899",
+      "label": "07 2102 9899",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/contact-us#perth",
+      "label": "Perth",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "https://www.google.com/maps/search/?api=1&query=440A%20Morley%20Drive%2C%20Morley%20WA%206062",
+      "label": "440A Morley Drive, Morley WA 6062 (opens in Google Maps in a new tab)",
+      "target": "_blank",
+      "rel": "noopener noreferrer"
+    },
+    {
+      "href": "tel:0863735181",
+      "label": "08 6373 5181",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "/sitemap.xml",
+      "label": "Sitemap",
+      "target": "",
+      "rel": ""
+    },
+    {
+      "href": "#main-content",
+      "label": "Back to top",
+      "target": "",
+      "rel": ""
+    }
+  ],
+  "internalRoutes": [
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/forms?service=personal-tax",
+      "status": 200
+    },
+    {
+      "route": "/forms?service=business-accounting",
+      "status": 200
+    },
+    {
+      "route": "/forms?service=conveyancing",
+      "status": 200
+    },
+    {
+      "route": "/quote-calculator",
+      "status": 200
+    },
+    {
+      "route": "/team",
+      "status": 200
+    },
+    {
+      "route": "/blog",
+      "status": 200
+    },
+    {
+      "route": "/contact-us",
+      "status": 200
+    },
+    {
+      "route": "/appointment",
+      "status": 200
+    },
+    {
+      "route": "/forms",
+      "status": 200
+    },
+    {
+      "route": "/digital-signature",
+      "status": 200
+    },
+    {
+      "route": "/support",
+      "status": 200
+    },
+    {
+      "route": "/sitemap.xml",
+      "status": 200
+    }
+  ]
+}

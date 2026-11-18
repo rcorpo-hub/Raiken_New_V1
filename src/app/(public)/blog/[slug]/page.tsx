@@ -1,3 +1,5 @@
+import {getPublishedDocument} from '@/lib/workspace/public-content';
+import PublishedArticle from '@/components/public/PublishedArticle';
 import React from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -69,6 +71,8 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const managed=await getPublishedDocument('/blog/'+slug);
+  if(managed&&(!POSTS[slug]||managed.revision>1))return <PublishedArticle document={managed.blocks} blog/>;
   const post = POSTS[slug];
 
   if (!post) {

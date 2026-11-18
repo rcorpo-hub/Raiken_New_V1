@@ -7,7 +7,7 @@ import PaperPageIntro from './PaperPageIntro';
 import { FORM_GROUPS, FORM_SERVICES, type FormService } from './form-services';
 
 interface FormDef {
-  id: number;
+  id: number | string;
   title: string;
   category: string;
   description: string;

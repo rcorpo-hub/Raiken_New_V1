@@ -508,3 +508,78 @@ body.raikan-site { font-family:var(--font-dm-sans),Arial,sans-serif; color:var(-
   .site-main > :not(.new-page) h1 { font-size: 40px; background-size: 160px 7px; }
   .site-main > :not(.new-page) :is(div,section):has(> form) { padding: 24px 20px; }
 }
+
+/* One compact shared footer: navigation and offices share the same grid. */
+.site-footer.footer-expanded {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  min-height: 0;
+  padding: 0 var(--page-gutter);
+  background: #ece7dd;
+  border-top: 1px solid #cfc7ba;
+}
+.footer-main-grid { display: grid; grid-template-columns: 1.2fr .95fr .85fr 1.1fr 1.5fr; gap: clamp(24px, 2.6vw, 56px); padding-block: 42px 32px; }
+.footer-main-grid > * { min-width: 0; }
+.footer-expanded .footer-brand .wordmark { width: 174px; max-width: 100%; }
+.footer-expanded .footer-brand .wordmark img { width: 100%; height: auto; }
+.footer-brand-description { max-width: 26ch; font-size: 14px; line-height: 1.65; color: #514d44; margin: 20px 0 14px; }
+.footer-expanded a { text-decoration: none; }
+.footer-expanded a:hover { text-decoration: underline; text-decoration-color: var(--orange-dark); text-decoration-thickness: 2px; }
+.footer-contact-link { display: flex; align-items: center; gap: 8px; width: fit-content; max-width: 100%; min-height: 36px; font-size: 14px; overflow-wrap: anywhere; }
+.footer-expanded svg { flex-shrink: 0; }
+.footer-contact-link > svg:first-child, .footer-address > svg, .footer-office-phone > svg { color: var(--orange-dark); }
+.raikan-site .footer-expanded :is(.footer-nav-group, .footer-offices) > h2 { font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 12px; font-weight: 650; line-height: 1.5; letter-spacing: .075em; text-transform: uppercase; margin: 0 0 15px; }
+.footer-nav-group ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 3px; }
+.footer-nav-group li { min-width: 0; }
+.footer-nav-group li a { display: inline-flex; align-items: center; gap: 6px; min-height: 35px; padding-block: 5px; font-size: 14px; line-height: 1.5; }
+.footer-offices-grid { display: grid; gap: 17px; }
+.raikan-site .footer-office h3 { font-family: var(--font-dm-sans), Arial, sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0; line-height: 1.4; margin: 0 0 5px; }
+.footer-office h3 a { display: inline-flex; align-items: center; gap: 9px; }
+.footer-office h3 svg { width: 14px; height: 14px; }
+.footer-office address { display: grid; font-size: 13px; line-height: 1.55; font-style: normal; }
+.footer-address { display: flex; align-items: flex-start; gap: 7px; max-width: 33ch; padding-block: 2px; }
+.footer-address > svg { width: 14px; height: 14px; margin-top: 3px; }
+.footer-office-phone { display: inline-flex; align-items: center; gap: 8px; width: fit-content; min-height: 30px; padding-block: 4px; }
+.footer-office-phone > svg { width: 14px; height: 14px; }
+.footer-bottom-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px 25px; border-top: 1px solid #cfc7ba; padding-block: 12px; font-size: 12px; color: #514d44; }
+.footer-bottom-bar p { margin: 0; }
+.footer-bottom-bar > div { display: flex; align-items: center; gap: 24px; }
+.footer-bottom-bar a { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; }
+@media (min-width: 1900px) {
+  .footer-main-grid { padding-block: 48px 36px; }
+  .footer-brand-description, .footer-contact-link, .footer-nav-group li a { font-size: 16px; }
+  .footer-office address { font-size: 15px; }
+  .raikan-site .footer-office h3 { font-size: 17px; }
+  .raikan-site .footer-expanded :is(.footer-nav-group, .footer-offices) > h2 { font-size: 13px; }
+  .footer-bottom-bar { font-size: 13px; }
+}
+@media (max-width: 1200px) {
+  .footer-main-grid { grid-template-columns: 1.15fr 1fr 1fr 1fr; gap: 32px 25px; }
+  .footer-offices { grid-column: 1 / -1; }
+  .footer-offices-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 25px; }
+}
+@media (max-width: 800px) {
+  .footer-main-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .footer-brand { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; align-items: start; }
+  .footer-brand .wordmark { grid-row: span 3; }
+  .footer-brand-description { margin: 0 0 8px; max-width: 30ch; }
+}
+@media (max-width: 640px) {
+  .footer-main-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); padding-block: 30px 24px; gap: 27px 20px; }
+  .footer-brand { display: block; }
+  .footer-expanded .footer-brand .wordmark { width: 150px; }
+  .footer-brand-description { margin: 17px 0 10px; max-width: 33ch; }
+  .footer-contact-link { min-height: 44px; }
+  .footer-client-resources { grid-column: 1 / -1; }
+  .footer-client-resources ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3px 20px; }
+  .footer-nav-group li a { min-height: 44px; }
+  .footer-offices-grid { grid-template-columns: 1fr; gap: 17px; }
+  .footer-office { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 12px; align-items: start; }
+  .footer-office h3 a { min-height: 44px; align-items: flex-start; padding-top: 2px; }
+  .footer-office h3 svg { margin-top: 3px; }
+  .footer-address { min-height: 44px; }
+  .footer-office-phone { min-height: 44px; }
+  .footer-bottom-bar { flex-direction: column; align-items: flex-start; gap: 4px; padding-block: 15px; font-size: 11px; }
+  .footer-bottom-bar a { min-height: 44px; }
+}

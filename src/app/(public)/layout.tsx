@@ -1,3 +1,4 @@
+import '@/styles/managed-forms.css';
 import Header from '@/components/public/Header';
 import Footer from '@/components/public/Footer';
 

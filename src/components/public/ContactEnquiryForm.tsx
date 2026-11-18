@@ -1,9 +1,12 @@
 'use client';
+import { useFormSubmit } from '@/lib/workspace/submit-form';
+import { getApplicant } from '@/lib/workspace/applicant';
 
 import React, { useState } from 'react';
 import { Mail, Phone, User, HelpCircle, CheckCircle, AlertCircle, Send, FileText } from 'lucide-react';
 
 export default function ContactEnquiryForm() {
+  const submitForm = useFormSubmit();
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -27,16 +30,12 @@ export default function ContactEnquiryForm() {
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/forms/contact-us/submissions', {
+      const response = await submitForm('/api/forms/contact-us/submissions', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           branch_code: 'ADE',
-          applicant: {
-            name: `${formData.first_name} ${formData.last_name}`.trim(),
-            email: formData.email,
-            phone: formData.phonenumber,
-          },
+          applicant: getApplicant(formData),
           answers: {
             first_name: formData.first_name,
             last_name: formData.last_name,

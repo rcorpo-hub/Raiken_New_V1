@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "migrations": 8,
+  "application_tables": 45,
+  "tables_without_rls": 0,
+  "initial_owner_count": 0,
+  "new_file_scan_status": "pending",
+  "functions_match_browser_test_database": true,
+  "policies_match_browser_test_database": true,
+  "environment": "separate empty local database, port 55322; no hosted access"
+}

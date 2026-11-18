@@ -1,0 +1,12 @@
+import {readFileSync,writeFileSync,existsSync} from 'node:fs';
+import {randomBytes} from 'node:crypto';
+const file=new URL('../.env.local',import.meta.url);
+if(!existsSync(file))throw new Error('Copy .env.example to .env.local first.');
+const text=readFileSync(file,'utf8');
+const pattern=/^[ \t]*(?:export[ \t]+)?ENCRYPTION_MASTER_KEY[ \t]*=([^\r\n]*)/gm;
+const matches=[...text.matchAll(pattern)];if(matches.length>1)throw new Error('Duplicate encryption-key entries found. Resolve them privately before continuing.');
+const match=matches[0];
+if(match&&match[1].trim().replace(/^['"]|['"]$/g,''))throw new Error('An encryption key is already set. It was not changed. Never replace a key used for existing submissions.');
+const line='ENCRYPTION_MASTER_KEY='+randomBytes(32).toString('hex');
+writeFileSync(file,match?text.replace(pattern,line):text+'\n'+line+'\n',{mode:0o600});
+console.log('Encryption key saved directly to ignored .env.local. Its value was not printed. Store a protected backup before accepting submissions.');

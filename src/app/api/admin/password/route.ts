@@ -1,0 +1,4 @@
+import {z} from 'zod';
+import {createClient} from '@/lib/supabase/server';
+import {checkOrigin,readBoundedJson,HttpError,errorResponse} from '@/lib/workspace/http';
+export async function POST(request:Request){try{checkOrigin(request);const input=z.object({password:z.string().min(12).max(256)}).safeParse(await readBoundedJson(request,4096));if(!input.success)throw new HttpError(400,'Use a password with at least 12 characters.');const db=await createClient();const {data:{user},error}=await db.auth.getUser();if(error||!user)throw new HttpError(401,'A valid invitation or recovery session is required.');const {error:updateError}=await db.auth.updateUser({password:input.data.password});if(updateError)throw new HttpError(400,'The password could not be changed. Use a stronger password or request a new invitation.');await db.auth.signOut();return Response.json({success:true},{headers:{'Cache-Control':'no-store'}});}catch(error){return errorResponse(error);}}

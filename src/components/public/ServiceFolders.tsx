@@ -11,10 +11,11 @@ const services = [
   { id: 'property', label: 'Conveyancing', heading: 'Your next move, made simpler.', description: 'Buying or selling a property? Get clear guidance through the paperwork and settlement process, with a team you can talk to along the way.', cta: 'Explore conveyancing', href: '/forms?service=conveyancing' },
 ];
 
-export default function ServiceFolders() {
+export default function ServiceFolders({ copy }: { copy?: Record<string,string> }) {
   const [selected, setSelected] = useState(0);
   const tabs = useRef<(HTMLButtonElement | null)[]>([]);
-  const service = services[selected];
+  const base = services[selected];
+  const service = {...base,heading:copy?.[base.id+'Title']||base.heading,description:copy?.[base.id+'Text']||base.description};
   function onKeyDown(event: React.KeyboardEvent<HTMLButtonElement>, index: number) {
     let next = index;
     if (event.key === 'ArrowRight') next = (index + 1) % services.length;

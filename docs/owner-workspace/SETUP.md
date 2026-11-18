@@ -43,7 +43,7 @@ supabase db push --linked --dry-run
 supabase db push --linked
 ```
 
-Apply the original foundation migration followed by all dated owner migrations in repository order, through `20261117000006_document_verification.sql`. No manual SQL edits or schema reset are needed.
+Apply the original foundation migration followed by all dated owner migrations in repository order, through `20261118000000_submission_form_metadata.sql`. No manual SQL edits or schema reset are needed.
 
 4. Fill the deployment environment with that project's URL, anon key and server-only service-role key, plus a new encryption key and the exact canonical HTTPS application URL. Set `NEXT_PUBLIC_SITE_URL` to the intended public domain. Do not carry `LOCAL_WORKSPACE_TEST=true` into the hosted environment. Never upload the local fixture file or local database.
 5. In Supabase Auth, keep the **email/password provider enabled** and disable **public user signups** globally. Enable authenticator/TOTP enrollment and verification. Set a strong minimum password length (local configuration uses 12). Add only the intended `/auth/confirm` redirect URLs, including localhost only while explicitly needed for development. Local `config.toml` does not configure the hosted project's Auth settings automatically.

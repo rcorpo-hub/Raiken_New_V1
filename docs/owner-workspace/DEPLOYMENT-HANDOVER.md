@@ -14,7 +14,7 @@ cd Raiken_New_V1
 pnpm install --frozen-lockfile
 ```
 
-Use the included lockfile. The staging branch includes frontend, Next server routes, eight SQL migrations, setup scripts and repeatable local browser tests. It excludes `.env.local`, `.diagnostics`, local accounts/databases, dependencies and build output. Keep further changes on a feature branch; keep main untouched until review.
+Use the included lockfile. The staging branch includes frontend, Next server routes, nine SQL migrations, setup scripts and repeatable local browser tests. It excludes `.env.local`, `.diagnostics`, local accounts/databases, dependencies and build output. Keep further changes on a feature branch; keep main untouched until review.
 
 ## 2. Create the Supabase project
 
@@ -35,7 +35,7 @@ supabase db push --linked
 supabase migration list
 ```
 
-Read and confirm the linked project before the push. Use the CLI's private password prompt. Apply the foundation plus all owner migrations in timestamp order; the final migration is `20261117000006_document_verification.sql`. The remote migration list must match all eight SQL files. Do not paste fragments into SQL Editor, delete migrations, reset a populated project, or repair migration history just to suppress an error. Diagnose unexpected differences first. See [Supabase migration deployment](https://supabase.com/docs/guides/deployment/database-migrations).
+Read and confirm the linked project before the push. Use the CLI's private password prompt. Apply the foundation plus all owner migrations in timestamp order; the final migration is `20261118000000_submission_form_metadata.sql`. The remote migration list must match all nine SQL files. Do not paste fragments into SQL Editor, delete migrations, reset a populated project, or repair migration history just to suppress an error. Diagnose unexpected differences first. See [Supabase migration deployment](https://supabase.com/docs/guides/deployment/database-migrations).
 
 ## 4. Configure environment values privately
 
@@ -132,3 +132,5 @@ The local test suite is intentionally locked to local Supabase port 54321 and mu
 The client still needs to decide whether to import old records. Do not access/delete the old WordPress installation or replay its notifications. Follow `LEGACY-MIGRATION.md`: protected export, source-ID mapping, staging rehearsal, reconciliation, client approval and controlled cutover. A schema is prepared for import provenance, but the importer must be built from the actual source export.
 
 If staging fails, keep the current live website in place and restore the previous app build/environment as appropriate. Do not reset the database or rotate the encryption key to fix an application error. Production cutover and DNS changes require their own approved plan after hosted acceptance.
+
+For the new submission category/form filters and Field / Value entries, see [Submission review](SUBMISSION-REVIEW.md).

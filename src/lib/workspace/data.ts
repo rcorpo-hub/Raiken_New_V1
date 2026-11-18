@@ -2,7 +2,8 @@ import 'server-only';
 import {z} from 'zod';
 import {requireAdmin,type getAdminSession} from './access';
 import {HttpError} from './http';
-import type {WorkspaceModule} from './config';
+import {submissionFormOptions} from './submission-forms';
+import type {SubmissionService} from './submission-categories';
 
 export const moduleQueries={
   submissions:{table:'submissions',select:'id,reference,status,received_at,safe_summary,branch_id,form_id,revision',permission:'submissions.read',order:'received_at'},
@@ -16,7 +17,7 @@ export const moduleQueries={
 } as const;
 export type DataModule=keyof typeof moduleQueries;
 export type DataRow=Record<string,unknown> & {id:string};
-export async function listRecords(module:DataModule,page=1,search='',status='',branch=''){
+export async function listRecords(module:DataModule,page=1,search='',status='',branch='',service:SubmissionService|''='',form=''){
   const config=moduleQueries[module];const {db}=await requireAdmin(config.permission);
   const current=Math.max(1,Math.min(100000,Math.trunc(page)||1));
   const table:string=config.table;const selectedColumns:string=config.select;
@@ -26,6 +27,12 @@ export async function listRecords(module:DataModule,page=1,search='',status='',b
   }
   if(status&&['submissions','customers','appointments'].includes(module))query=query.eq('status',status);
   if(branch&&['submissions','customers','appointments'].includes(module))query=query.eq('branch_id',branch);
+  if(module==='submissions'&&(service||form)){
+    const permitted=await submissionFormOptions();
+    const ids=permitted.filter(item=>(!service||item.service===service)&&(!form||item.id===form)).map(item=>item.id);
+    if(!ids.length)return {rows:[] as DataRow[],count:0,page:current};
+    query=query.in('form_id',ids);
+  }
   const {data,error,count}=await query.range((current-1)*25,current*25-1);
   if(error)throw new HttpError(503,'Records could not be loaded. Please try again.');
   return {rows:(data||[]) as unknown as DataRow[],count:count||0,page:current};

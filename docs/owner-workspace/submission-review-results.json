@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Synthetic records cover business, personal and the existing purchaser form; submitted versions are preserved after edits",
+      "passed": true
+    },
+    {
+      "name": "Category/form/office/status filters combine before server pagination; counts, page two and mismatched filters are correct",
+      "passed": true
+    },
+    {
+      "name": "Restricted reviewers can identify their archived forms while cross-office records, unrelated archived forms, draft columns and anonymous reads stay blocked",
+      "passed": true
+    },
+    {
+      "name": "Browser filter controls limit form choices, reset the selected form/category page and preserve applied filters while paging",
+      "passed": true
+    },
+    {
+      "name": "Managed entries show original form title/order/labels, contact inputs, choice labels, zero, No and blank fields; saved markup is escaped",
+      "passed": true
+    },
+    {
+      "name": "Existing purchaser entries use every saved form input label and retain values independently of answer-object order",
+      "passed": true
+    },
+    {
+      "name": "Submission list filters and Field/Value entries fit laptop, large monitor, tablet and phone widths",
+      "passed": true
+    },
+    {
+      "name": "No browser runtime errors",
+      "passed": true
+    }
+  ],
+  "pageErrors": []
+}

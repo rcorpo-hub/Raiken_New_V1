@@ -4,6 +4,7 @@ import {ShieldCheck,Database,ArrowRight} from 'lucide-react';
 import {requireAdminPage} from '@/lib/workspace/access';
 import {workspaceModules,publicDatabaseConfig} from '@/lib/workspace/config';
 import {moduleQueries,listRecords,branches,workspaceOverview,type DataModule} from '@/lib/workspace/data';
+import {submissionFormOptions} from '@/lib/workspace/submission-forms';
 import RecordsTable from '@/components/admin/RecordsTable';
 import InviteStaff from '@/components/admin/InviteStaff';
 import CreateItem from '@/components/admin/CreateItem';
@@ -13,7 +14,7 @@ export default async function ModulePage({params}:{params:Promise<{module:string
  const {module}=await params;const config=workspaceModules.find(item=>item.key===module);if(!config||module==='overview')notFound();
  const session=await requireAdminPage(config.permission);
  const heading=<div className="admin-page-heading"><div><p className="admin-eyebrow">OWNER WORKSPACE</p><h1>{config.label}</h1><p>{descriptions[module]||'Manage your business with clear information and controlled access.'}</p></div></div>;
- if(module in moduleQueries){const key=module as DataModule;const [initial,offices,{data:forms}]=await Promise.all([listRecords(key),branches(),session.db.from('forms').select('id,title')]);return <>{heading}{module==='staff'&&session.access.owner&&<InviteStaff/>}{(module==='forms'||module==='content')&&<CreateItem kind={module==='forms'?'form':'content'}/>} {module==='appointments'&&<p className="admin-alert">These are appointment requests, not reserved calendar slots. A confirmed booking needs its own time and availability check.</p>}<RecordsTable module={key} initial={initial} offices={offices} formNames={Object.fromEntries((forms||[]).map(form=>[form.id,form.title]))}/></>;}
+ if(module in moduleQueries){const key=module as DataModule;const [initial,offices,forms]=await Promise.all([listRecords(key),branches(),key==='submissions'?submissionFormOptions():Promise.resolve([])]);return <>{heading}{module==='staff'&&session.access.owner&&<InviteStaff/>}{(module==='forms'||module==='content')&&<CreateItem kind={module==='forms'?'form':'content'}/>} {module==='appointments'&&<p className="admin-alert">These are appointment requests, not reserved calendar slots. A confirmed booking needs its own time and availability check.</p>}<RecordsTable module={key} initial={initial} offices={offices} forms={forms}/></>;}
  if(module==='reports'){
   const data=await workspaceOverview();return <>{heading}<section className="admin-panel admin-editor"><h2>Operational summary</h2><p>These are current record counts within your access. They are not website visitor analytics.</p><dl className="admin-definition-list">{[['Received submissions',data.submissions],['New submissions awaiting review',data.review],['Client records',data.clients],['Pending appointment requests',data.appointments]].filter(([,value])=>value!==null).map(([label,value])=><div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl><p className="admin-small admin-muted">A client may have more than one record; shared emails are not automatically merged.</p></section></>;
  }

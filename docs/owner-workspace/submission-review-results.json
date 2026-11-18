@@ -14,11 +14,15 @@
       "passed": true
     },
     {
-      "name": "Office buttons apply immediately using only applied filters, preserve pending changes, reset pagination and retain the previous selection if a refresh fails",
+      "name": "Office buttons apply immediately with the selected category, preserve pending manual changes, reset pagination and recover from failed refreshes",
       "passed": true
     },
     {
-      "name": "Service, form, status and reference changes still wait for Apply filters on Submissions",
+      "name": "Specific form, status and reference changes still wait for Apply filters on Submissions",
+      "passed": true
+    },
+    {
+      "name": "Category buttons apply without submission, combine with offices, clear stale form selections, preserve pending manual edits and recover from failed refreshes",
       "passed": true
     },
     {

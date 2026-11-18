@@ -209,7 +209,7 @@
 .admin-original-entry .admin-completed-form { padding-top:0; }
 @media(max-width:650px){.admin-completed-form{padding:0 17px 20px}.admin-completed-grid{grid-template-columns:1fr;gap:17px}.admin-completed-field-wide{grid-column:auto}}
 
-/* Only the Submissions office selector applies immediately. */
+/* The Submissions office and category buttons apply immediately. */
 .admin-office-tools { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:17px 20px; border-bottom:1px solid var(--admin-line); }
 .admin-office-label { font-size:12px; font-weight:600; color:#606752; }
 .admin-office-options { display:flex; flex-wrap:wrap; gap:6px; }
@@ -219,3 +219,5 @@
 .admin-office-options button:focus-visible { outline:2px solid #ba381b; outline-offset:3px; }
 .admin-office-hint { color:var(--admin-muted); font-size:11px; margin-left:auto; }
 @media(max-width:600px){.admin-office-tools{padding:15px;gap:10px}.admin-office-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.admin-office-hint{margin-left:0}}
+
+@media(max-width:600px){.admin-category-options button:last-child:nth-child(odd){grid-column:1/-1}}

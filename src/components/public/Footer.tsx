@@ -10,7 +10,6 @@ const footerGroups = [
       { label: 'Personal tax', href: '/forms?service=personal-tax' },
       { label: 'Business accounting', href: '/forms?service=business-accounting' },
       { label: 'Conveyancing', href: '/forms?service=conveyancing' },
-      { label: 'Get a conveyancing quote', href: '/quote-calculator' },
     ],
   },
   {
@@ -52,8 +51,8 @@ export default async function Footer() {
             <ul>
               <li><Link href="/forms">All client forms</Link></li>
               <li><a href="https://accounts.rcorpo.com/login" target="_blank" rel="noopener noreferrer">Accounting software<ArrowUpRight size={15} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a></li>
-              <li><Link href="/digital-signature">Digital signatures</Link></li>
-              <li><Link href="/support">Client support</Link></li>
+              <li><Link href="/appointment-booking-form">Book a consultation</Link></li>
+              <li><Link href="/contact-us">Client support</Link></li>
             </ul>
           </nav>
 

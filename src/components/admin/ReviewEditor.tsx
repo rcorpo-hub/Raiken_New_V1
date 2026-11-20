@@ -2,14 +2,16 @@
 import {useState} from 'react';
 import {useRouter} from 'next/navigation';
 import {submissionStatuses,readable} from '@/lib/workspace/config';
-export default function ReviewEditor({id,revision,status,answers,canCorrect}:{id:string;revision:number;status:string;answers:Record<string,unknown>;canCorrect:boolean}){
- const router=useRouter();const [currentStatus,setStatus]=useState(status);const [note,setNote]=useState('');const [editing,setEditing]=useState(false);const [values,setValues]=useState(Object.fromEntries(Object.entries(answers).map(([key,value])=>[key,typeof value==='string'?value:JSON.stringify(value)])));const [busy,setBusy]=useState(false);const [error,setError]=useState('');const [message,setMessage]=useState('');
+export default function ReviewEditor({id,revision,status}:{id:string;revision:number;status:string}){
+ const router=useRouter(),[currentStatus,setStatus]=useState(status),[note,setNote]=useState(''),[busy,setBusy]=useState(false),[error,setError]=useState(''),[message,setMessage]=useState('');
  async function save(event:React.FormEvent){event.preventDefault();setBusy(true);setError('');try{
-  const correction:Record<string,unknown>={};if(editing)for(const [key,value] of Object.entries(values)){const old=answers[key];if(typeof old==='string')correction[key]=value;else{try{correction[key]=JSON.parse(value);}catch{throw new Error(`Check the value for ${readable(key)}.`);}}}
-  const response=await fetch('/api/admin/command',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'review',id,revision,status:currentStatus,note,...(editing?{correction}:{})})});const data=await response.json();if(!response.ok)throw new Error(data.error);setMessage('Review saved. Original submitted answers are unchanged.');setEditing(false);setNote('');router.refresh();
+  const response=await fetch('/api/admin/command',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'review',id,revision,status:currentStatus,note})});
+  const body=await response.json();if(!response.ok)throw new Error(body.error);
+  setMessage('Review saved. Submitted answers remain read-only.');setNote('');router.refresh();
  }catch(error){setError(error instanceof Error?error.message:'Please try again.');}finally{setBusy(false);}}
- return <form className="admin-panel admin-editor" onSubmit={save}><h2>Review & follow up</h2>{error&&<p role="alert" className="admin-alert admin-alert-error">{error}</p>}{message&&<p role="status" className="admin-alert admin-alert-success">{message}</p>}<label className="admin-field">Review status<select value={currentStatus} onChange={event=>setStatus(event.target.value)}>{submissionStatuses.map(value=><option key={value} value={value}>{readable(value)}</option>)}</select></label><label className="admin-field">{editing?'Reason for this correction':'Private review note'}<textarea rows={3} required={editing} minLength={editing?5:undefined} maxLength={2000} value={note} onChange={event=>setNote(event.target.value)}/></label>
- {canCorrect&&<label className="admin-checkbox"><input type="checkbox" checked={editing} onChange={event=>setEditing(event.target.checked)}/>Record a correction to the submitted information</label>}
- {editing&&<div className="admin-correction-fields"><p className="admin-alert">These are corrected working values. The original and every earlier correction stay in the history.</p>{Object.entries(values).map(([key,value])=><label key={key} className="admin-field">{readable(key)}<textarea rows={typeof answers[key]==='object'?4:2} maxLength={24000} value={value} onChange={event=>setValues({...values,[key]:event.target.value})}/></label>)}</div>}
+ return <form className="admin-panel admin-editor" onSubmit={save}><h2>Review & follow up</h2><p className="admin-muted">Update your internal work status and notes. Submitted answers are read-only.</p>
+ {error&&<p role="alert" className="admin-alert admin-alert-error">{error}</p>}{message&&<p role="status" className="admin-alert admin-alert-success">{message}</p>}
+ <label className="admin-field">Review status<select value={currentStatus} onChange={e=>setStatus(e.target.value)}>{submissionStatuses.map(s=><option key={s} value={s}>{readable(s)}</option>)}</select></label>
+ <label className="admin-field">Private review note<textarea rows={3} maxLength={2000} value={note} onChange={e=>setNote(e.target.value)}/></label>
  <button className="admin-button admin-button-primary" disabled={busy}>{busy?'Saving…':'Save review'}</button></form>;
 }

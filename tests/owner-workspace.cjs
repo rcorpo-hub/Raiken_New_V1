@@ -6,7 +6,7 @@ const {createClient}=requireRepo('@supabase/supabase-js');const {createServerCli
 const {chromium}=require('playwright');
 process.loadEnvFile(path.join(repo,'.env.local'));
 if(process.env.LOCAL_WORKSPACE_TEST!=='true'||!/^http:\/\/(127\.0\.0\.1|localhost):54321$/.test(process.env.NEXT_PUBLIC_SUPABASE_URL||''))throw new Error('This test is restricted to the local synthetic database.');
-const fixturePath=path.join(repo,'.diagnostics/owner-workspace-fixtures.json');
+const fixturePath=process.env.OWNER_WORKSPACE_FIXTURES||path.join(repo,'.diagnostics/owner-workspace-fixtures.json');
 const fixtures=JSON.parse(fs.readFileSync(fixturePath,'utf8'));const base='http://localhost:3000';
 const evidence=path.join(repo,'.diagnostics/workspace-evidence');fs.mkdirSync(evidence,{recursive:true});
 const url=process.env.NEXT_PUBLIC_SUPABASE_URL;const anonKey=process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -18,7 +18,7 @@ function totp(secret){let bits='';for(const char of secret.toUpperCase().replace
 const saveFixtures=()=>fs.writeFileSync(fixturePath,JSON.stringify(fixtures));
 async function signedIn(name,mfa=true){const record=fixtures[name];const db=createClient(url,anonKey,{auth:{persistSession:false,autoRefreshToken:false}});await checked(db.auth.signInWithPassword({email:record.email,password:record.password}));if(mfa){const {data:factors}=await db.auth.mfa.listFactors();let factor=factors.totp.find(factor=>factor.status==='verified');if(!factor||!record.secret){for(const f of factors.all)await db.auth.mfa.unenroll({factorId:f.id});const {data,error}=await db.auth.mfa.enroll({factorType:'totp',friendlyName:'Synthetic verification'});if(error)throw error;record.secret=data.totp.secret;record.factorId=data.id;saveFixtures();factor={id:data.id};}await checked(db.auth.mfa.challengeAndVerify({factorId:factor.id,code:totp(record.secret)}));}return db;}
 function decrypt(record,cipher='answers_ciphertext',aad=`${record.form_version_id}:${record.reference}`){const meta=record.encryption_meta;const decipher=crypto.createDecipheriv('aes-256-gcm',Buffer.from(process.env.ENCRYPTION_MASTER_KEY,'hex'),Buffer.from(meta.iv,'base64'));decipher.setAAD(Buffer.from(aad));decipher.setAuthTag(Buffer.from(meta.tag,'base64'));return JSON.parse(Buffer.concat([decipher.update(Buffer.from(record[cipher].replace(/^\\x/,''),'hex')),decipher.final()]).toString());}
-const post=async(context,path,body)=>context.post(base+path,{headers:{Origin:base,'Content-Type':'application/json'},data:body});
+const post=async(context,path,body)=>context.post(base+path,{headers:{Origin:base,'Content-Type':'application/json'},data:body,timeout:30000});
 
 (async()=>{
  const browser=await chromium.launch({headless:true,...(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH?{executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH}:{})});
@@ -47,15 +47,15 @@ const post=async(context,path,body)=>context.post(base+path,{headers:{Origin:bas
   await outsider.auth.updateUser({data:{role:'owner',permissions:['submissions.read']}});assert.equal((await outsider.rpc('current_admin_access')).data,null);
   const selfGrant=await staff.rpc('admin_set_staff_access',{target:fixtures.staff.id,grants:['users.manage'],branch_ids:[ade],enabled:true});assert.ok(selfGrant.error);
   mark('Staff branch/permission grants work; self-promotion and editable Auth metadata cannot grant owner access');
-  const contact={branch_code:'ADE',applicant:{name:'Synthetic Ada Example',email:'ada.qa@example.test',phone:'0400000000'},answers:{first_name:'Synthetic Ada',last_name:'Example',email:'ada.qa@example.test',phonenumber:'0400000000',subject:'QA enquiry',question:'Synthetic verification message'},idempotency_key:crypto.randomUUID()};
-  const first=await post(context.request,'/api/forms/contact-us/submissions',contact);assert.equal(first.status(),200);const accepted=await first.json();assert.ok(accepted.reference);created.push(accepted.submission_id);
-  const duplicates=await Promise.all(Array.from({length:8},()=>post(context.request,'/api/forms/contact-us/submissions',contact)));const duplicateBodies=await Promise.all(duplicates.map(async response=>{assert.equal(response.status(),200);return response.json();}));assert.ok(duplicateBodies.every(item=>item.reference===accepted.reference&&item.submission_id===accepted.submission_id));
-  const conflict=await post(context.request,'/api/forms/contact-us/submissions',{...contact,answers:{...contact.answers,question:'Different information'}});assert.equal(conflict.status(),409);
-  const stored=await checked(service.from('submissions').select('*').eq('id',accepted.submission_id).single());assert.equal(stored.answers_json,null);assert.equal(decrypt(stored).question,contact.answers.question);assert.ok(!JSON.stringify(stored.answers_ciphertext).includes('Synthetic'));
+  const appointment={branch_code:'ADE',applicant:{name:'Synthetic Ada Example',email:'ada.qa@example.test',phone:'0400000000'},answers:{name:'Synthetic Ada Example',email:'ada.qa@example.test',phone:'0400000000',service:'Conveyancing Consultation',format:'online',preferredDate:'2027-01-20',preferredTimeSlot:'morning',notes:'Synthetic verification message'},idempotency_key:crypto.randomUUID()};
+  const first=await post(context.request,'/api/forms/appointment-booking-form/submissions',appointment);assert.equal(first.status(),200);const accepted=await first.json();assert.ok(accepted.reference);created.push(accepted.submission_id);
+  const duplicates=await Promise.all(Array.from({length:8},()=>post(context.request,'/api/forms/appointment-booking-form/submissions',appointment)));const duplicateBodies=await Promise.all(duplicates.map(async response=>{assert.equal(response.status(),200);return response.json();}));assert.ok(duplicateBodies.every(item=>item.reference===accepted.reference&&item.submission_id===accepted.submission_id));
+  const conflict=await post(context.request,'/api/forms/appointment-booking-form/submissions',{...appointment,answers:{...appointment.answers,notes:'Different information'}});assert.equal(conflict.status(),409);
+  const stored=await checked(service.from('submissions').select('*').eq('id',accepted.submission_id).single());assert.equal(stored.answers_json,null);assert.equal(decrypt(stored).notes,appointment.answers.notes);assert.ok(!JSON.stringify(stored.answers_ciphertext).includes('Synthetic'));
   const unchanged=await service.from('submissions').update({answers_json:{tampered:true}}).eq('id',stored.id);assert.ok(unchanged.error);
   const originalCipher=stored.answers_ciphertext;
   mark('Durable encrypted intake, concurrent retry deduplication, conflict rejection and immutable originals');
-  const second=await post(context.request,'/api/forms/contact-us/submissions',{...contact,branch_code:'BNE',idempotency_key:crypto.randomUUID()});assert.equal(second.status(),200);const bneSubmission=await second.json();created.push(bneSubmission.submission_id);
+  const second=await post(context.request,'/api/forms/appointment-booking-form/submissions',{...appointment,branch_code:'BNE',idempotency_key:crypto.randomUUID()});assert.equal(second.status(),200);const bneSubmission=await second.json();created.push(bneSubmission.submission_id);
   const staffRows=await checked(staff.from('submissions').select('id,branch_id'));assert.ok(staffRows.some(row=>row.id===stored.id));assert.ok(staffRows.every(row=>row.branch_id===ade));assert.ok(!staffRows.some(row=>row.id===bneSubmission.submission_id));
   const crossOffice=await staff.rpc('admin_review_submission',{target:bneSubmission.submission_id,expected_revision:1,new_status:'under_review',note:'Not allowed'});assert.ok(crossOffice.error);
   const editorRows=await editor.from('submissions').select('id');assert.ok(editorRows.error||editorRows.data.length===0);
@@ -79,13 +79,14 @@ const post=async(context,path,body)=>context.post(base+path,{headers:{Origin:bas
   await checked(service.from('submission_files').delete().eq('file_id',file.id));await checked(service.from('file_objects').delete().eq('id',file.id));await checked(service.storage.from('verified-documents').remove([documentKey]));
   mark('Pending and unverified files are blocked; private verified fixture downloads are audited and cross-office access is denied');
 
-  const correction={...contact.answers,question:'Corrected synthetic message'};
-  const corrected=await post(context.request,'/api/admin/command',{action:'review',id:stored.id,revision:1,status:'under_review',note:'Corrected after checking the synthetic fixture.',correction});assert.equal(corrected.status(),200);
+  const correction={...appointment.answers,notes:'Corrected synthetic message'};
+   const blocked=await post(context.request,'/api/admin/command',{action:'review',id:stored.id,revision:1,status:'under_review',note:'Synthetic blocked answer edit.',correction});assert.equal(blocked.status(),400);
+   const reviewed=await post(context.request,'/api/admin/command',{action:'review',id:stored.id,revision:1,status:'under_review',note:'Synthetic review without editing answers.'});assert.equal(reviewed.status(),200);
   const stale=await post(context.request,'/api/admin/command',{action:'review',id:stored.id,revision:1,status:'processed',note:'Stale attempt'});assert.equal(stale.status(),409);
   const correctedStored=await checked(service.from('submissions').select('*').eq('id',stored.id).single());assert.equal(correctedStored.answers_ciphertext,originalCipher);assert.equal(correctedStored.revision,2);
-  const history=await checked(service.from('submission_corrections').select('*').eq('submission_id',stored.id));assert.equal(history.length,1);assert.equal(decrypt({...history[0]},'answers_ciphertext',`${stored.id}:correction:2`).question,correction.question);
-  await page.goto(base+'/admin/submissions/'+stored.id,{waitUntil:'networkidle'});await page.getByText('Corrected synthetic message',{exact:true}).waitFor();await page.getByText('Original submitted answers — preserved',{exact:true}).click();assert.match(await page.locator('body').innerText(),/Synthetic verification message/);
-  mark('Owner review and reasoned corrections retain encrypted history; stale writes fail and original answers remain viewable');
+   const history=await checked(service.from('submission_corrections').select('*').eq('submission_id',stored.id));assert.equal(history.length,0);
+   await page.goto(base+'/admin/submissions/'+stored.id,{waitUntil:'networkidle'});assert.ok((await page.locator('input[readonly],textarea[readonly]').evaluateAll(fields=>fields.map(field=>field.value))).includes('Synthetic verification message'));
+  mark('Owner answer edits are blocked; review notes/statuses work, stale writes fail and original encrypted answers remain unchanged');
   const {data:home}=await service.from('content_items').select('id,revision,published_revision_id').eq('path','/').single();const {data:homeVersion}=await service.from('content_revisions').select('blocks').eq('id',home.published_revision_id).single();
   const draftData={...homeVersion.blocks,headline1:'QA draft must stay private.'};
   await checked(editor.rpc('admin_save_content',{target:home.id,expected_revision:home.revision,document:draftData,metadata:{},publish:false}));
@@ -117,28 +118,25 @@ const post=async(context,path,body)=>context.post(base+path,{headers:{Origin:bas
   await page.goto(base+'/forms?service=personal-tax',{waitUntil:'networkidle'});await page.getByText('Updated synthetic verification form',{exact:true}).waitFor();
   mark('Owner creates/publishes a form; browser submits it into the database, server rejects tampering, and version history plus directory category stay correct');
   const invalidOrigin=await context.request.post(base+'/api/admin/records',{data:{module:'submissions'}});assert.equal(invalidOrigin.status(),403);
-  const oversized=await post(context.request,'/api/forms/contact-us/submissions',{...contact,answers:{...contact.answers,question:'x'.repeat(150000)}});assert.equal(oversized.status(),413);
-  const invalidForm=await post(context.request,'/api/forms/nonexistent-form/submissions',contact);assert.equal(invalidForm.status(),503);assert.equal((await invalidForm.json()).success,undefined);
+  const oversized=await post(context.request,'/api/forms/appointment-booking-form/submissions',{...appointment,answers:{...appointment.answers,notes:'x'.repeat(150000)}});assert.equal(oversized.status(),413);
+  const invalidForm=await post(context.request,'/api/forms/nonexistent-form/submissions',appointment);assert.equal(invalidForm.status(),503);assert.equal((await invalidForm.json()).success,undefined);
   mark('Missing Origin, oversized payload and unavailable form are rejected without a false receipt');
   await checked(owner.rpc('admin_set_staff_access',{target:fixtures.staff.id,grants:[],branch_ids:[],enabled:false}));const revoked=await staff.from('submissions').select('id');assert.ok(revoked.error||revoked.data.length===0);assert.equal((await staff.rpc('current_admin_access')).data,null);
   mark('Suspending staff removes data access even with an existing valid session token');
   await checked(service.from('forms').update({status:'archived'}).eq('id',customForm));
-  for(const [serviceName,count] of [['personal-tax',7],['business-accounting',7],['conveyancing',7],['',24]]){
+  for(const [serviceName,count] of [['personal-tax',6],['business-accounting',4],['conveyancing',1],['',12]]){
    await page.goto(base+'/forms'+(serviceName?'?service='+serviceName:''),{waitUntil:'networkidle'});
-   assert.match(await page.locator('.forms-result-count').innerText(),new RegExp(`^${count} forms found$`));
+   assert.match(await page.locator('.forms-result-count').innerText(),new RegExp(`^${count} ${count===1?'form':'forms'} found$`));
    assert.equal(await page.locator('.form-links > a').count(),count);
   }
   const catalog=require(path.join(repo,'src/lib/workspace/form-catalog.json'));
   for(const route of [...new Set(catalog.map(form=>form.path)), '/nc']){
    const response=await page.goto(base+route,{waitUntil:'networkidle'});assert.equal(response.status(),200,route);assert.ok(await page.locator('h1').count(),route);
   }
-  await page.goto(base+'/quote-calculator',{waitUntil:'networkidle'});assert.ok((await page.locator('body').innerText()).includes('$1,551.00'));
-  await page.getByPlaceholder('990.00',{exact:true}).fill('1000');await page.getByText('$1,561.00',{exact:true}).first().waitFor();
-  const quoteAnswers={branch:'ADE',i_am:'Buyer',Property_Price:'650000',Our_Fees:'1000',Stamp_Duty:'0',Lodgement_Fees:'286',Transaction_fees:'88',LTO_Mortgage_Registration_Fees:'187',Priority_Notices_optional:'0',New_Title_post_settlement_optional:'0',Vendor_Fees:'770',LTO_Discharge_of_Mortgage_Registration:'187',Special_Water_Meter_Reading:'35',Torrens_Title_Form_1:'250',Community_Lot_Form_1:'0',Strata_Unit_Form_1:'0',total_buyer:'0.01',Vendor_Total:'0.01'};
-  const quoteResponse=await post(context.request,'/api/forms/quote-calculator/submissions',{branch_code:'ADE',applicant:{name:'',email:''},answers:quoteAnswers,idempotency_key:crypto.randomUUID()});assert.equal(quoteResponse.status(),200);
-  const quoteId=(await quoteResponse.json()).submission_id;created.push(quoteId);const quoteStored=await checked(service.from('submissions').select('*').eq('id',quoteId).single());assert.equal(decrypt(quoteStored).total_buyer,'1561.00');assert.equal(decrypt(quoteStored).Vendor_Total,'1242.00');
-  const badQuote=await post(context.request,'/api/forms/quote-calculator/submissions',{branch_code:'ADE',applicant:{name:'',email:''},answers:{...quoteAnswers,Our_Fees:'invalid'}});assert.equal(badQuote.status(),400);
-  mark('All 24 registered intake routes and the conveyancing gateway load; category counts stay 7/7/7 plus 3 General; quote totals work in browser and override tampered client totals');
+  for(const form of require('../src/lib/workspace/removed-forms.json')){
+   const denied=await post(context.request,'/api/forms/'+form.slug+'/submissions',{});assert.equal(denied.status(),404,form.slug);
+  }
+  mark('Twelve approved public forms load with category counts 6/4/1 plus Appointments; retired submission endpoints reject requests');
 
   await checked(owner.rpc('admin_set_staff_access',{target:fixtures.staff.id,grants:['dashboard.read','submissions.read','submissions.review','customers.read','bookings.read','documents.read'],branch_ids:[ade],enabled:true}));
   for(const route of ['/admin','/admin/submissions','/admin/customers','/admin/appointments','/admin/documents','/admin/reports','/admin/content','/admin/forms','/admin/staff','/admin/audit','/admin/migration','/admin/settings']){const response=await page.goto(base+route,{waitUntil:'networkidle'});assert.equal(response.status(),200,route);await page.locator('h1').waitFor();assert.ok(!(await page.locator('body').innerText()).includes('This page couldn’t be loaded.'));}

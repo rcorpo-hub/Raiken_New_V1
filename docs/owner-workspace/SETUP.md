@@ -4,7 +4,7 @@ The implementation runs at `/admin` alongside the existing public website. The h
 
 ## What is available
 
-- Authenticated dashboard, submission review/status/notes, immutable original answers and encrypted correction history.
+- Authenticated dashboard, submission review/status/notes, read-only original answers and retained historical correction history.
 - Client profiles, preferred-time appointment requests, private verified-document downloads, current operational counts and activity history.
 - Draft/publish website wording for home/service panels, contact/office details, team and footer; new text pages and blog posts; immutable published revisions and restore-as-new-version editing.
 - Managed forms with text, email, phone, number, date, paragraph, choice and checkbox fields. New forms appear in their selected service category.
@@ -27,7 +27,7 @@ node --env-file=.env.local scripts/seed-workspace.mjs
 pnpm dev
 ```
 
-The seed is idempotent: it registers 24 intake destinations, current public content and private storage buckets. It does not create accounts or import client records. `/nc` remains a conveyancing gateway, not a separate intake engine. The public directory still has 24 links: 7 Personal, 7 Business, 7 Conveyancing and 3 General; the support intake is registered separately.
+The seed is idempotent and creates no accounts or client submissions. Apply all migrations before seeding. The combined conveyancing form is now at /nc; the two separate purchaser/vendor pages are retired. The approved public directory has 12 forms: 6 Personal, 4 Business (2 Company and 2 Trust), 1 combined Conveyancing and 1 Appointment booking. Other registrations and their form code are deleted. The owner approved removal of the local synthetic records; accounts and access settings remain. Contact details remain at /contact-us without an enquiry form. Newsletter signup is retired. See [CONVEYANCING.md](CONVEYANCING.md) for LiveSign, email, scheduler and environment setup. These integrations remain disabled until explicitly configured.
 
 ## Hosted Supabase project, before owner setup
 
@@ -43,7 +43,7 @@ supabase db push --linked --dry-run
 supabase db push --linked
 ```
 
-Apply the original foundation migration followed by all dated owner migrations in repository order, through `20261118000000_submission_form_metadata.sql`. No manual SQL edits or schema reset are needed.
+Apply the original foundation migration followed by all dated owner migrations in repository order, through `20261119000001_delete_unused_forms.sql`. No manual SQL edits or schema reset are needed.
 
 4. Fill the deployment environment with that project's URL, anon key and server-only service-role key, plus a new encryption key and the exact canonical HTTPS application URL. Set `NEXT_PUBLIC_SITE_URL` to the intended public domain. Do not carry `LOCAL_WORKSPACE_TEST=true` into the hosted environment. Never upload the local fixture file or local database.
 5. In Supabase Auth, keep the **email/password provider enabled** and disable **public user signups** globally. Enable authenticator/TOTP enrollment and verification. Set a strong minimum password length (local configuration uses 12). Add only the intended `/auth/confirm` redirect URLs, including localhost only while explicitly needed for development. Local `config.toml` does not configure the hosted project's Auth settings automatically.
@@ -85,3 +85,9 @@ For an already installed compatible Chromium, set `PLAYWRIGHT_CHROMIUM_EXECUTABL
 ## Before accepting real clients
 
 This local build is not a production launch approval. Connect hosted Auth/storage, verify backup and recovery, replace test credentials, review actual workflows and exercise the important negative access cases on staging. Configure a quarantine upload/verification/scanning pipeline before collecting new attachments. No scanner is bundled, and new metadata defaults to pending. Existing complex forms retain their original user interface until individually reviewed: the managed editor does not yet implement conditional/repeatable sections, signatures, calculations or upload fields. Do not publish an extracted replacement without confirming every required behavior. Appointment requests do not reserve calendar availability. Legal/retention wording and any legacy import need the client's decision.
+
+## Starting the local website after closing apps or restarting Windows
+
+Run npm run preview:local from the project folder and keep that terminal open while testing. This starts Docker Desktop in the background when needed, starts only the existing local project's core containers, waits for database/authentication/form readiness, and then starts Next.js with automatic code updates at http://localhost:3000. It does not reset the database or send LiveSign requests or email. npm run preview:local -- --production uses an existing production build instead.
+
+Running npm run dev alone starts Next.js without starting Supabase. If Docker is closed, the website can render its shell but cannot load or save form drafts. Reopen the local preview launcher and press Try again in the form once it reports Supabase is ready. Keep Docker Desktop open during local testing. Hosted Supabase will be independent of the laptop's Docker service after the separate hosted setup is completed.

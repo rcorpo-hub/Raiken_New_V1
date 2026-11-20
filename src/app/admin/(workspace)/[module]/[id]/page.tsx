@@ -11,6 +11,8 @@ import SubmissionAnswers from '@/components/admin/SubmissionAnswers';
 import {registeredFormService} from '@/lib/workspace/submission-forms';
 import {submissionServiceLabel} from '@/lib/workspace/submission-categories';
 import catalog from '@/lib/workspace/form-catalog.json';
+import ConveyancingSubmission,{VerificationSummary} from '@/components/admin/ConveyancingSubmission';
+import {formDataSchema} from '@/lib/conveyancing/schema';
 import ContentEditor from '@/components/admin/ContentEditor';
 import FormEditor from '@/components/admin/FormEditor';
 import ReviewEditor from '@/components/admin/ReviewEditor';
@@ -34,6 +36,10 @@ export default async function RecordPage({params}:{params:Promise<{module:string
   ]);
   if(reviewError||correctionError||versionError||formError)throw new Error('Submission details unavailable.');
   const original=row.answers_ciphertext?decryptAnswers(String(row.answers_ciphertext),row.encryption_meta as {iv:string;tag:string},`${row.form_version_id}:${row.reference}`):(row.answers_json||{}) as Record<string,unknown>;
+  const conveyancing=version?.schema_json?.engine==='conveyancing-v1'?formDataSchema.safeParse(original):null;
+  const verification=conveyancing?.success?await session.db.from('conveyancing_cases').select('*').eq('submission_id',id).maybeSingle():null;
+  const people=conveyancing?.success?await session.db.from('conveyancing_people').select('*').eq('submission_id',id).order('party_index'):null;
+  if(verification?.error||people?.error)throw new Error('Verification results unavailable.');
   const latest=corrections?.[0];const working=latest?decryptAnswers(latest.answers_ciphertext,latest.encryption_meta,`${id}:correction:${latest.revision}`):original;
   const title=typeof version?.schema_json?.title==='string'?version.schema_json.title:form?.title||'Client form';
   const category=form?submissionServiceLabel(registeredFormService(form)):'Uncategorised';
@@ -43,11 +49,12 @@ export default async function RecordPage({params}:{params:Promise<{module:string
    <div className="admin-record-layout"><div>
     <section className="admin-panel admin-submission-entry">
      <div className="admin-panel-heading"><div><h2>{latest?'Current working information':'Submitted information'}</h2><p>This completed form is read-only. Original submitted answers are preserved.</p></div><StatusBadge value={String(row.status)}/></div>
-     <SubmissionAnswers idPrefix={`submission-${id}-working`} answers={working} schema={version?.schema_json} contact={contact}/>
+     {conveyancing?.success?<ConveyancingSubmission data={conveyancing.data} id={id}/>:<SubmissionAnswers idPrefix={`submission-${id}-working`} answers={working} schema={version?.schema_json} contact={contact}/>}
     </section>
+    {verification?.data&&<VerificationSummary record={verification.data} people={people?.data||[]}/>}
     {latest&&<details className="admin-panel admin-original-entry"><summary>Original submitted answers — preserved</summary><SubmissionAnswers idPrefix={`submission-${id}-original`} answers={original} schema={version?.schema_json} contact={contact} caption="Original submitted answers"/></details>}
     <section className="admin-panel admin-editor"><h2>Review history</h2>{reviews?.length?<ul className="admin-timeline">{reviews.map(review=><li key={review.id}><strong>{readable(review.status_to||'Reviewed')}</strong><time>{formatDate(review.created_at)}</time><p>{review.note_text||'Status updated.'}</p></li>)}</ul>:<p className="admin-muted">No review notes yet.</p>}{!!corrections?.length&&<p className="admin-small">{corrections.length} correction version{corrections.length===1?'':'s'} retained. Original answers have not been replaced.</p>}</section>
-   </div>{session.access.permissions.includes('submissions.review')&&<ReviewEditor id={id} revision={Number(row.revision)} status={String(row.status)} answers={working} canCorrect={session.access.permissions.includes('submissions.correct')}/>}</div>
+   </div>{session.access.permissions.includes('submissions.review')&&<ReviewEditor id={id} revision={Number(row.revision)} status={String(row.status)}/>}</div>
   </>;
 
  }
@@ -60,6 +67,7 @@ export default async function RecordPage({params}:{params:Promise<{module:string
   return <>{heading(String(row.title),'Drafts remain private. Publishing updates the public website.')}<ContentEditor id={id} revision={Number(row.revision)} contentKey={contentKey} genericDefinition={genericDefinition} initial={draft.draft_blocks||current?.blocks||(contentKey?defaultContent(contentKey):{title:String(row.title),summary:'',body:''})} canPublish={session.access.permissions.includes('content.publish')} history={history||[]}/></>;
  }
  if(module==='forms'){
+  if(row.slug==='conveyancing-intake')return <>{heading(String(row.title),'A dedicated conveyancing workflow with protected verification questions.')}<section className="admin-panel admin-editor"><h2>Conveyancing form</h2><p>This form includes linked questions, multiple people, declarations, signatures and LiveSign verification. Its essential fields are protected.</p><Link href="/nc" className="admin-button">View public form</Link></section></>;
   const [{data:draft,error},{data:history,error:historyError}]=await Promise.all([session.db.rpc('admin_draft',{kind:'forms',target:id}),session.db.from('form_versions').select('id,version,schema_json').eq('form_id',id).order('version',{ascending:false}).limit(20)]);
   if(error||historyError||!draft)throw new Error('Form editor unavailable.');
   const registration=catalog.find(item=>item.slug===row.slug);const current=(history||[]).find(item=>item.id===row.current_version_id);const published=managedFormSchema.safeParse(current?.schema_json);

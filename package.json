@@ -9,7 +9,10 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test:workspace:prepare": "node scripts/prepare-workspace-tests.cjs",
-    "test:workspace": "node tests/owner-workspace.cjs"
+    "test:workspace": "node tests/owner-workspace.cjs",
+    "test:conveyancing": "node tests/conveyancing.cjs",
+    "test:conveyancing:people": "node tests/conveyancing-people.cjs",
+    "preview:local": "node scripts/local-preview.cjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -23,7 +26,8 @@
     "react-hook-form": "^7.54.2",
     "server-only": "0.0.1",
     "tailwind-merge": "^3.0.2",
-    "zod": "^4.6.6"
+    "zod": "^4.6.6",
+    "nodemailer": "10.0.12"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.9",

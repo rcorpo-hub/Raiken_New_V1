@@ -1,4 +1,7 @@
 {
+  "passed": true,
+  "syntheticOnly": true,
+  "date": "2026-11-19",
   "checks": [
     {
       "name": "Anonymous business-data reads, draft access, owner bootstrap and public signup are denied",
@@ -25,7 +28,7 @@
       "passed": true
     },
     {
-      "name": "Owner review and reasoned corrections retain encrypted history; stale writes fail and original answers remain viewable",
+      "name": "Owner answer edits are blocked; review notes/statuses work, stale writes fail and original encrypted answers remain unchanged",
       "passed": true
     },
     {
@@ -53,7 +56,7 @@
       "passed": true
     },
     {
-      "name": "All 24 registered intake routes and the conveyancing gateway load; category counts stay 7/7/7 plus 3 General; quote totals work in browser and override tampered client totals",
+      "name": "Twelve approved public forms load with category counts 6/4/1 plus Appointments; retired submission endpoints reject requests",
       "passed": true
     },
     {
@@ -73,7 +76,5 @@
       "passed": true
     }
   ],
-  "pageErrors": [],
-  "passed": true,
-  "createdSyntheticSubmissions": 4
+  "pageErrors": []
 }

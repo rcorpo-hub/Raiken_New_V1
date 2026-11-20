@@ -21,12 +21,12 @@ if(!failures.length){
  const db=createClient(url,secret,{auth:{persistSession:false,autoRefreshToken:false}});
  const publicDb=createClient(url,anon,{auth:{persistSession:false,autoRefreshToken:false}});
  const [{data:forms,error:formError},{data:offices,error:officeError},{data:buckets,error:bucketError},{data:grants,error:permissionError}]=await Promise.all([
-  db.from('forms').select('slug,current_version_id'),db.from('branches').select('code').eq('active',true),db.storage.listBuckets(),db.from('permissions').select('code').eq('code','submissions.correct')
+  db.from('forms').select('slug,status,current_version_id'),db.from('branches').select('code').eq('active',true),db.storage.listBuckets(),db.from('permissions').select('code').eq('code','submissions.review')
  ]);
  if(formError||officeError||permissionError)fail('Database schema or server key check failed. Apply all migrations and verify that both keys belong to this project.');
  else{
   const catalog=JSON.parse(readFileSync(new URL('../src/lib/workspace/form-catalog.json',import.meta.url),'utf8'));
-  if(!catalog.every(item=>forms.some(form=>form.slug===item.slug&&form.current_version_id)))fail('The workspace seed is incomplete: one or more intake definitions are missing.');
+  if(!catalog.every(item=>forms.some(form=>form.slug===item.slug&&form.status==='published'&&form.current_version_id)))fail('The workspace seed is incomplete: one or more active intake definitions are missing.');
   if(!['ADE','BNE','PER'].every(code=>offices.some(office=>office.code===code)))fail('One or more required active offices are missing.');
   if(!grants.length)fail('Owner permission migrations are missing.');
  }

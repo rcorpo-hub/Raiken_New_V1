@@ -1,0 +1,54 @@
+[
+  {
+    "slug": "i-am-purchaser",
+    "path": "/nc/i-am-purchaser"
+  },
+  {
+    "slug": "i-am-vendor",
+    "path": "/nc/i-am-vendor"
+  },
+  {
+    "slug": "residential-property",
+    "path": "/residential-property"
+  },
+  {
+    "slug": "form-for-vendor-sales",
+    "path": "/form-for-vendor-sales"
+  },
+  {
+    "slug": "buyer-form",
+    "path": "/buyer-form"
+  },
+  {
+    "slug": "quote-calculator",
+    "path": "/quote-calculator"
+  },
+  {
+    "slug": "tax-declaration-form",
+    "path": "/tax-declaration-form"
+  },
+  {
+    "slug": "shiva-family-trust",
+    "path": "/shiva-family-trust"
+  },
+  {
+    "slug": "shree-ashapuri-unit-trust",
+    "path": "/shree-ashapuri-unit-trust"
+  },
+  {
+    "slug": "paarthav-family-trust",
+    "path": "/paarthav-family-trust"
+  },
+  {
+    "slug": "digital-signature",
+    "path": "/digital-signature"
+  },
+  {
+    "slug": "contact-us",
+    "path": "/contact-us"
+  },
+  {
+    "slug": "support",
+    "path": "/support"
+  }
+]

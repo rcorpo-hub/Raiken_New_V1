@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-19",
+  "localSyntheticOnly": true,
+  "activeForms": 12,
+  "historicalSubmissionsPreserved": 0,
+  "finalSubmissions": 0,
+  "realLiveSignRequests": 0,
+  "realEmailsSent": 0,
+  "browserErrors": [],
+  "checks": [
+    {
+      "name": "Only twelve approved forms, including Appointment booking, are public; unwanted definitions are deleted",
+      "passed": true
+    },
+    {
+      "name": "Database rejects republishing every retired registration",
+      "passed": true
+    },
+    {
+      "name": "Directory contains the exact approved links, service counts 6/4/1, and Company/Trust subgroups",
+      "passed": true
+    },
+    {
+      "name": "All kept pages and appointment aliases load; retired pages, /apply aliases and submission endpoints reject access",
+      "passed": true
+    },
+    {
+      "name": "Sitemap and footer contain working destinations without retired form links",
+      "passed": true
+    },
+    {
+      "name": "Phone, tablet, laptop and large monitor layouts fit; historical submissions are unchanged and no final submissions or LiveSign calls occurred",
+      "passed": true
+    }
+  ]
+}

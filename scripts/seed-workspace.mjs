@@ -15,6 +15,7 @@ const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false
 const check=({data,error})=>{if(error)throw new Error(error.message);return data;};
 let forms=0,pages=0;
 for(const item of catalog){
+ if(item.slug==='conveyancing-intake')continue;
  const existing=check(await db.from('forms').select('id,current_version_id').eq('slug',item.slug).maybeSingle());
  const form=existing||check(await db.from('forms').insert({slug:item.slug,title:item.title,status:'published'}).select('id,current_version_id').single());
  if(!form.current_version_id){

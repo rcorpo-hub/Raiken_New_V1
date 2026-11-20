@@ -221,3 +221,5 @@
 @media(max-width:600px){.admin-office-tools{padding:15px;gap:10px}.admin-office-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:100%}.admin-office-hint{margin-left:0}}
 
 @media(max-width:600px){.admin-category-options button:last-child:nth-child(odd){grid-column:1/-1}}
+
+.admin-submitted-signature{display:block;width:min(100%,600px);height:auto;max-height:300px;object-fit:contain;background:#fff;border:1px solid #dedbd1;border-radius:8px;padding:12px}.admin-verification{margin-top:24px}.admin-verification .admin-definition-list{margin:20px 0}

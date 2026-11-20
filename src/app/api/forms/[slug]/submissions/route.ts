@@ -4,9 +4,12 @@ import {checkOrigin,readBoundedJson,errorResponse,HttpError} from '@/lib/workspa
 import {intakeSchema,managedFormSchema,validateAnswers,validateJsonBounds} from '@/lib/workspace/validation';
 import {encryptAnswers} from '@/lib/workspace/encryption';
 import {validateLegacy} from '@/lib/workspace/legacy-validation';
+import {isRemovedForm} from '@/lib/workspace/form-availability';
 
 export async function POST(request:Request,{params}:{params:Promise<{slug:string}>}){try{
  checkOrigin(request);const {slug}=await params;if(!/^[a-z0-9-]{1,100}$/.test(slug))throw new HttpError(404,'Form not found.');
+ if(isRemovedForm(slug))throw new HttpError(404,'This form is no longer available.');
+ if(slug==='conveyancing-intake')throw new HttpError(404,'Use the new conveyancing form at /nc.');
  const raw=await readBoundedJson(request);if(!validateJsonBounds(raw))throw new HttpError(400,'Invalid or excessive submission data.');
  const input=intakeSchema.safeParse(raw);if(!input.success)throw new HttpError(400,'Check the applicant details and form answers.');
  const value=input.data;const db=createPrivilegedClient();

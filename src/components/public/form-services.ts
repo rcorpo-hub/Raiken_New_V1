@@ -20,12 +20,12 @@ export const FORM_GROUPS: FormGroup[] = [
       { id: 'company', name: 'Company', categories: ['Corporate'] },
       {
         id: 'trust', name: 'Trust', categories: ['Trusts'],
-        description: 'Trust registration and existing-client forms. A named-trust form is intended for clients of that specific trust.',
+        description: 'Register a new trust or provide your trust’s client details.',
       },
     ],
   },
   { id: 'conveyancing', name: 'Property & conveyancing', categories: ['Conveyancing'] },
-  { id: 'general', name: 'Enquiries & appointments', categories: ['General'] },
+  { id: 'general', name: 'Appointments', categories: ['General'] },
 ];
 
 export const FORM_SERVICES = {

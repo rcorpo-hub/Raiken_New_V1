@@ -1,5 +1,6 @@
 {
   "passed": true,
+  "syntheticOnly": true,
   "checks": [
     {
       "name": "Synthetic records cover business, personal and the existing purchaser form; submitted versions are preserved after edits",
@@ -38,7 +39,7 @@
       "passed": true
     },
     {
-      "name": "Original and corrected forms show distinct values with unique field labels; permitted staff see read-only submitted fields without correction access",
+      "name": "Owners and permitted staff see read-only original answers with unique labels; answer correction is blocked",
       "passed": true
     },
     {

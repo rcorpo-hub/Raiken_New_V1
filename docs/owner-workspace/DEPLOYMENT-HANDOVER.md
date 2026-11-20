@@ -1,6 +1,6 @@
 # Raikan Corporation — developer deployment handover
 
-Prepared 18 November 2026. The current application and owner workspace are published on the `staging` branch of [rcorpo-hub/Raiken_New_V1](https://github.com/rcorpo-hub/Raiken_New_V1/tree/staging). Main remains unchanged. This branch includes the application, database migrations, setup helpers and local verification reports. No hosted Supabase project or real owner account has been provisioned.
+Updated 19 November 2026. The published baseline is on the staging branch of [rcorpo-hub/Raiken_New_V1](https://github.com/rcorpo-hub/Raiken_New_V1/tree/staging). The combined conveyancing/LiveSign integration and read-only-answer updates are local changes and have not been pushed. Use this prepared checkout for the current implementation until an explicit push is approved. Main remains unchanged. No hosted Supabase project or real owner account has been provisioned.
 
 **Supabase hosts the database, authentication and private storage. It does not deploy this Next.js application by uploading the source.** The website and server API routes need a Next.js-compatible Node application host. Use separate staging and production environments. Do not replace the existing live website or change DNS during setup.
 
@@ -14,7 +14,7 @@ cd Raiken_New_V1
 pnpm install --frozen-lockfile
 ```
 
-Use the included lockfile. The staging branch includes frontend, Next server routes, nine SQL migrations, setup scripts and repeatable local browser tests. It excludes `.env.local`, `.diagnostics`, local accounts/databases, dependencies and build output. Keep further changes on a feature branch; keep main untouched until review.
+Use the included lockfile. The staging branch includes frontend, Next server routes, twelve SQL migrations, setup scripts and repeatable local browser tests. It excludes `.env.local`, `.diagnostics`, local accounts/databases, dependencies and build output. Keep further changes on a feature branch; keep main untouched until review.
 
 ## 2. Create the Supabase project
 
@@ -35,7 +35,7 @@ supabase db push --linked
 supabase migration list
 ```
 
-Read and confirm the linked project before the push. Use the CLI's private password prompt. Apply the foundation plus all owner migrations in timestamp order; the final migration is `20261118000000_submission_form_metadata.sql`. The remote migration list must match all nine SQL files. Do not paste fragments into SQL Editor, delete migrations, reset a populated project, or repair migration history just to suppress an error. Diagnose unexpected differences first. See [Supabase migration deployment](https://supabase.com/docs/guides/deployment/database-migrations).
+Read and confirm the linked project before the push. Use the CLI's private password prompt. Apply the foundation plus all owner migrations in timestamp order; the final migration is `20261119000001_delete_unused_forms.sql`. The remote migration list must match all twelve SQL files. Do not paste fragments into SQL Editor, delete migrations, reset a populated project, or repair migration history just to suppress an error. Diagnose unexpected differences first. See [Supabase migration deployment](https://supabase.com/docs/guides/deployment/database-migrations).
 
 ## 4. Configure environment values privately
 
@@ -66,7 +66,7 @@ node --env-file=.env.local scripts/seed-workspace.mjs
 node --env-file=.env.local scripts/check-workspace-config.mjs
 ```
 
-Expected seed summary: **24 intake registrations, 6 editable content regions and two private buckets**. It does not create a real owner, staff or client submissions. It does not import the old website. It preserves existing registrations/content on repeat runs.
+Expected seed summary: **11 seeded intake registrations plus the combined conveyancing registration created by migrations, 6 editable content regions and two private buckets**. It does not create a real owner, staff or client submissions. It does not import the old website. It preserves existing registrations/content on repeat runs.
 
 Confirm `quarantine-uploads` and `verified-documents` remain **private**; do not add public read/write policies for client documents. A configuration-check PASS is a setup diagnostic, not a replacement for hosted acceptance tests. No scanner is installed: document downloads remain blocked for pending/unverified files. Do not manually mark real uploads clean. The test suite uses explicitly synthetic verification metadata only in its isolated local database. See [Storage access control](https://supabase.com/docs/guides/storage/security/access-control).
 
@@ -120,7 +120,7 @@ Use synthetic records in a separate staging project. Confirm:
 - The owner opens actual content/form editors, saves a private draft, publishes approved text and sees the public change. New managed forms submit into the database and keep their version. Original complex forms retain their behavior until explicitly reviewed.
 - Reviews/corrections retain original submitted answers and audit history; stale edits return a refresh/conflict response.
 - A restricted staff member sees only permitted offices/actions; suspension revokes access on the next request. Downloads need explicit clean verification and download permission.
-- All existing public form destinations load; counts remain 7 Personal / 7 Business / 7 Conveyancing / 3 General before adding new forms. Calculator behavior and all three homepage service links still work.
+- The 12 approved form destinations load: 6 Personal / 4 Business / 1 Conveyancing / 1 Appointment booking. Retired forms reject new requests; their definitions and code are deleted. All three homepage service links and both appointment URLs still work.
 - Desktop, large monitor, tablet and phone layouts are reviewed. Application/database backups, encryption-key recovery, HTTPS, mail and owner recovery are rehearsed.
 
 The local test suite is intentionally locked to local Supabase port 54321 and must not be loosened to run against a hosted/production database. See `SETUP.md` to rerun it locally, and `VERIFICATION.md` for the local evidence and limits.
@@ -134,3 +134,7 @@ The client still needs to decide whether to import old records. Do not access/de
 If staging fails, keep the current live website in place and restore the previous app build/environment as appropriate. Do not reset the database or rotate the encryption key to fix an application error. Production cutover and DNS changes require their own approved plan after hosted acceptance.
 
 For the new submission category/form filters and read-only completed forms, see [Submission review](SUBMISSION-REVIEW.md).
+
+## Conveyancing integration addendum
+
+Follow [CONVEYANCING.md](CONVEYANCING.md) for the new database migration, private LiveSign/SMTP configuration and authenticated Supabase scheduler. Both integrations remain disabled until setup is complete. Clone/deployment instructions above apply to the updated code only after an explicitly approved push. No real verification submissions or outbound email were sent during implementation.

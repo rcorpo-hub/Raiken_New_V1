@@ -4,13 +4,14 @@ import {requireAdmin} from '@/lib/workspace/access';
 import {checkOrigin,readBoundedJson,errorResponse,HttpError} from '@/lib/workspace/http';
 import {managedFormSchema,validateJsonBounds} from '@/lib/workspace/validation';
 import {contentDefinitions,cleanContent,type ContentKey} from '@/lib/workspace/content-definitions';
-import {encryptAnswers} from '@/lib/workspace/encryption';
+
 import {createPrivilegedClient} from '@/lib/supabase/privileged';
 import {submissionStatuses} from '@/lib/workspace/config';
+import {isRemovedForm} from '@/lib/workspace/form-availability';
 
 const id=z.uuid();const revision=z.number().int().nonnegative();
 const commandSchema=z.discriminatedUnion('action',[
- z.object({action:z.literal('review'),id,revision,status:z.enum(submissionStatuses),note:z.string().max(2000),correction:z.record(z.string().max(200),z.unknown()).optional()}),
+ z.object({action:z.literal('review'),id,revision,status:z.enum(submissionStatuses),note:z.string().max(2000)}).strict(),
  z.object({action:z.literal('content'),id,revision,key:z.enum(Object.keys(contentDefinitions) as [ContentKey,...ContentKey[]]),document:z.unknown(),publish:z.boolean()}),
  z.object({action:z.literal('page'),id,revision,document:z.object({title:z.string().trim().min(1).max(160),summary:z.string().max(1500),body:z.string().trim().min(1).max(24000)}),publish:z.boolean()}),
  z.object({action:z.literal('form'),id,revision,definition:managedFormSchema,publish:z.boolean()}),
@@ -27,9 +28,7 @@ export async function POST(request:Request){try{
  const permissions={review:'submissions.review',content:'content.edit',page:'content.edit',form:'forms.edit',appointment:'bookings.manage',customer:'customers.manage',staff:'users.manage',invite:'users.manage'};
  const session=await requireAdmin(permissions[value.action]);let result;
  if(value.action==='review'){
-   let ciphertext:string|null=null;let meta:Record<string,unknown>|null=null;
-   if(value.correction){if(!session.access.permissions.includes('submissions.correct'))throw new HttpError(403,'Correction access is required.');const envelope=encryptAnswers(value.correction,`${value.id}:correction:${value.revision+1}`);ciphertext=envelope.ciphertext;meta=envelope.meta;}
-   result=await session.db.rpc('admin_review_submission',{target:value.id,expected_revision:value.revision,new_status:value.status,note:value.note,correction:ciphertext,correction_meta:meta});
+   result=await session.db.rpc('admin_review_submission',{target:value.id,expected_revision:value.revision,new_status:value.status,note:value.note,correction:null,correction_meta:null});
  }else if(value.action==='content'){
    let document:Record<string,string>;try{document=cleanContent(value.key,value.document);}catch(error){throw new HttpError(400,error instanceof Error?error.message:'Invalid content');}
    const {data:item}=await session.db.from('content_items').select('path').eq('id',value.id).maybeSingle();
@@ -42,6 +41,9 @@ export async function POST(request:Request){try{
    result=await session.db.rpc('admin_save_content',{target:value.id,expected_revision:value.revision,document:value.document,metadata:{title:value.document.title,description:value.document.summary},publish:value.publish});
    if(!result.error&&value.publish){revalidatePath(item.path);revalidatePath('/blog');}
  }else if(value.action==='form'){
+   const {data:protectedForm}=await session.db.from('forms').select('slug').eq('id',value.id).maybeSingle();
+   if(protectedForm&&isRemovedForm(protectedForm.slug))throw new HttpError(403,'This form has been removed.');
+   if(protectedForm?.slug==='conveyancing-intake')throw new HttpError(403,'The conveyancing workflow has protected verification questions.');
    if(value.publish&&!value.definition.reviewedLegacy)throw new HttpError(400,'Review the original form before publishing its replacement.');
    result=await session.db.rpc('admin_save_form',{target:value.id,expected_revision:value.revision,definition:value.definition,publish:value.publish});
    if(!result.error&&value.publish)revalidatePath('/','layout');

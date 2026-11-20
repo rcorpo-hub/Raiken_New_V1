@@ -1,0 +1,55 @@
+{
+  "syntheticOnly": true,
+  "realLiveSignRequests": 0,
+  "realEmailsSent": 0,
+  "results": [
+    {
+      "name": "Server validates buyer, seller, six people, hidden answers and non-empty signatures",
+      "passed": true
+    },
+    {
+      "name": "Responsive unified form, company contact path and existing unrelated forms remain accessible",
+      "passed": true
+    },
+    {
+      "name": "Buyer and seller browser journeys collect two and three people through a saved local receipt",
+      "passed": true
+    },
+    {
+      "name": "Draft save is encrypted, restored only by its owning cookie and rejects stale writes",
+      "passed": true
+    },
+    {
+      "name": "Concurrent repeated submits create one encrypted submission, case, person set and send job",
+      "passed": true
+    },
+    {
+      "name": "Simulated LiveSign creates/starts once and preserves account-holder billing and all people",
+      "passed": true
+    },
+    {
+      "name": "Authenticated callback is replay-safe and does not trust submitted verification results",
+      "passed": true
+    },
+    {
+      "name": "Provider identity and AML results sync independently; confirmations are deduplicated",
+      "passed": true
+    },
+    {
+      "name": "Uncertain create result is held for reconciliation instead of a second paid request",
+      "passed": true
+    },
+    {
+      "name": "Anonymous/private access, unauthenticated worker/webhook and forged verification results are denied",
+      "passed": true
+    },
+    {
+      "name": "Owner sees completed answers, signature and automatic statuses; answer correction is blocked",
+      "passed": true
+    },
+    {
+      "name": "No browser exceptions, real verification calls or outbound email occurred",
+      "passed": true
+    }
+  ]
+}

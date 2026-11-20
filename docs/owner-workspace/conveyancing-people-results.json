@@ -1,0 +1,26 @@
+{
+  "simulatedApiOnly": true,
+  "realSubmissions": 0,
+  "results": [
+    {
+      "name": "Purchaser restores 2 people and asks for every person before property details",
+      "passed": true
+    },
+    {
+      "name": "Purchaser restores 3 people and asks for every person before property details",
+      "passed": true
+    },
+    {
+      "name": "Vendor restores 2 people and asks for every person before property details",
+      "passed": true
+    },
+    {
+      "name": "Vendor restores 3 people and asks for every person before property details",
+      "passed": true
+    },
+    {
+      "name": "A failed initial load can be retried without showing or overwriting a one-person fallback",
+      "passed": true
+    }
+  ]
+}

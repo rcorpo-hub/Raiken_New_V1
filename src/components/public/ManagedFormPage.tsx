@@ -2,7 +2,10 @@ import {createClient} from '@supabase/supabase-js';
 import {publicDatabaseConfig} from '@/lib/workspace/config';
 import {managedFormSchema} from '@/lib/workspace/validation';
 import ManagedForm,{FormVersionProvider} from './ManagedForm';
+import {notFound} from 'next/navigation';
+import {isRemovedForm} from '@/lib/workspace/form-availability';
 export default async function ManagedFormPage({slug,children,compact=false}:{slug:string;children:React.ReactNode;compact?:boolean}){
+ if(isRemovedForm(slug))notFound();
  const config=publicDatabaseConfig();if(!config)return children;
  const db=createClient(config.url,config.key,{auth:{persistSession:false},global:{fetch:(url,init)=>fetch(url,{...init,cache:'no-store'})}});
  const {data:form}=await db.from('forms').select('id,current_version_id').eq('slug',slug).eq('status','published').maybeSingle();
